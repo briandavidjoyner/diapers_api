@@ -1,0 +1,27 @@
+{
+  "name": "diapers_new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briandavidjoyner/diapers_new.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/briandavidjoyner/diapers_new/issues"
+  },
+  "homepage": "https://github.com/briandavidjoyner/diapers_new#readme",
+  "dependencies": {
+    "compression": "^1.7.1",
+    "express": "^4.16.2",
+    "mailchimp-api-v3": "^1.7.1",
+    "md5": "^2.2.1",
+    "morgan": "^1.9.0",
+    "promise": "^8.0.1"
+  }
+}
