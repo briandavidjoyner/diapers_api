@@ -1,4 +1,4 @@
-/*var Mailchimp = require('mailchimp-api-v3')
+var Mailchimp = require('mailchimp-api-v3')
 var apiKey = process.env.mailchimpAPIKey;
 var list_id = process.env.mailchimpListID;
 var mailchimp = new Mailchimp(apiKey);
@@ -27,4 +27,4 @@ exports.subscribe = function(email,size,brand){
         }
     });
   });
-};*/
+};
