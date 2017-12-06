@@ -23,6 +23,10 @@ app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/public/views/pages/static.html');
 });
 
+app.get('/db', function (req, res) {
+	res.send(process.env.MONGODB_DATABASE || 'admin');
+});
+
 app.get('*', function (req, res) {
 	res.sendFile(__dirname + '/public/views/pages/index.html');
 
