@@ -1,6 +1,6 @@
 var Mailchimp = require('mailchimp-api-v3')
-var apiKey = process.env.mailchimpAPIKey;
-var list_id = process.env.mailchimpListID;
+var apiKey = process.env.mailchimpAPIKey || 'default';
+var list_id = process.env.mailchimpListID || 'default';
 var mailchimp = new Mailchimp(apiKey);
 var Promise = require('promise');
 var md5 = require('md5');
