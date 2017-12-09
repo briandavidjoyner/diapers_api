@@ -22,8 +22,10 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 router_API.get('/db'), function(req, res){
 	return new Promise(function(resolve,reject){
 		database.action().then(function(result){
+			console.log('api');
 			resolve (result);
 		}).catch(function(err){
+			console.log('failure');
 			reject (err);
 		});
 	});
