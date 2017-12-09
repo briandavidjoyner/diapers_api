@@ -23,13 +23,9 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 router_API.get('/db', function(req, res){
 	return new Promise(function(resolve,reject){
 		database.action().then(function(result){
-			console.log('api');
 			res.send(result);
-			resolve();
 		}).catch(function(err){
-			console.log('failure');
 			res.send(err);
-			reject (err);
 		});
 	});
 });
