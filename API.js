@@ -21,17 +21,17 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 });
 
 router_API.get('/db', function(req, res){
-	var toReturn = function(){ return new Promise(function(resolve,reject){
-			database.action().then(function(result){
-				console.log('api');
-				resolve (result);
-			}).catch(function(err){
-				console.log('failure');
-				reject (err);
-			});
+	return new Promise(function(resolve,reject){
+		database.action().then(function(result){
+			console.log('api');
+			res.send(result);
+			resolve();
+		}).catch(function(err){
+			console.log('failure');
+			res.send(err);
+			reject (err);
 		});
-	};
-	res.send(toReturn);
+	});
 });
 
 module.exports = router_API;
