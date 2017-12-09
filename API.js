@@ -18,8 +18,9 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 		res.send(err);
 		});
 	});
+});
 
-router_API.get('/db'), function(req, res){
+router_API.get('/db', function(req, res){
 	var toReturn = function(){ return new Promise(function(resolve,reject){
 			database.action().then(function(result){
 				console.log('api');
@@ -31,6 +32,6 @@ router_API.get('/db'), function(req, res){
 		});
 	};
 	res.send(toReturn);
-};
+});
 
 module.exports = router_API;
