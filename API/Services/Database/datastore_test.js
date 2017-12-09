@@ -10,8 +10,8 @@ var url = 'mongodb://' + username + ':' + password + '@]mongodb:27017/datastore'
 const dbName = 'Datastore';
 // Connect using MongoClient
 exports.action = function(){
+	console.log('action');
 	new Promise (function(resolve,reject){
-		// Action 
 		MongoClient.connect(url, function(err, client) {
 			if (err){
 				assert.equal(null, err);
