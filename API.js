@@ -20,16 +20,4 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 	});
 });
 
-router_API.get('/db', function(req, res){
-	 return new Promise(function(resolve,reject){
-		database.action()
-			.then(function(result){
-			res.send(result);
-		}).catch(function(err){
-			console.log('error');
-			res.send(err);
-		});
-	}); 
-});
-
 module.exports = router_API;
