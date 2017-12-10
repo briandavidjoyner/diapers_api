@@ -6,8 +6,10 @@ var password = process.env.MONGODB_PASSWORD
 var dbName = 'Datastore';
 var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 // Connect using MongoClient
+/*
 MongoClient.connect(url, function(err, db) {
   assert.equal(null, err);
   console.log("Connected successfully to server");
   db.close();
 });
+*/
