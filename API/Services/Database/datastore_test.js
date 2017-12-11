@@ -1,15 +1,18 @@
 var	Promise = require('promise');
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require ('mongoose');
 var assert = require('assert');
-var username = process.env.MONGODB_USER;
-var password = process.env.MONGODB_PASSWORD
+var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
+var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
 var dbName = 'Datastore';
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
+var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore_test';
+
 // Connect using MongoClient
-/*
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected successfully to server");
-  db.close();
-});
-*/
+mongoose.connect(url, { useMongoClient: true });
+
+exports.status = function(){
+	return new Promise (function(resolve,reject){
+		resolve (mongoose.connection);
+	}).catch(function(err){
+		reject (err);
+	});
+}
