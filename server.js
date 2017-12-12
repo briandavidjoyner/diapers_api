@@ -7,7 +7,7 @@ var API = require(__dirname + '/API.js');
 
 //Port & IP Settings
 var port = process.env.PORT || 8080;
-var ip = process.env.IP || 'localhost';
+var ip = process.env.IP || '0.0.0.0';
 
 //Middleware
 app.use(compression());
