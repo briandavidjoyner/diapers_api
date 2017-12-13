@@ -6,7 +6,7 @@ var dbName = process.env.MONGODB_DATABASE || 'datastore';
 
 //Comment Out For Production
 //var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/datastore';
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
 
 //Schema
 var itemSchema = mongoose.Schema({
