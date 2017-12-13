@@ -3,6 +3,7 @@ var mongoose = require ('mongoose');
 var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
 var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
 var dbName = process.env.MONGODB_DATABASE || 'datastore';
+var dbMethods
 
 //Comment Out For Production
 //var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
