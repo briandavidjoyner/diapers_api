@@ -6,8 +6,8 @@ var dbName = process.env.MONGODB_DATABASE || 'datastore';
 var dbMethods
 
 //Comment Out For Production
-//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
+var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
+//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -28,7 +28,7 @@ var db = mongoose.connection;
   		console.log('db connected');
 	});
 
-//
+//Methods
 exports.status = function(){
 	return new Promise (function(resolve,reject){
 		resolve (mongoose.connection);
