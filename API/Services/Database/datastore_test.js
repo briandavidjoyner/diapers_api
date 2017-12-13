@@ -2,11 +2,11 @@ var	Promise = require('promise');
 var mongoose = require ('mongoose');
 var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
 var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
-var dbName = 'Datastore';
+var dbName = process.env.MONGODB_DATABASE || 'datastore';
 
 //Comment Out For Production
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-//var url = 'mongodb://' + username + ':' + password + '@mongodb-diapers-api.193b.starter-ca-central-1.openshiftapps.com/datastore';
+//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/datastore';
 
 //Schema
 var itemSchema = mongoose.Schema({
