@@ -1,13 +1,12 @@
 var	Promise = require('promise');
 var mongoose = require ('mongoose');
-var ip = process.env.IP || '0.0.0.0';
 var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
 var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
 var dbName = 'Datastore';
 
 //Comment Out For Production
-//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-var url = 'mongodb://' + username + ':' + password + '@mongodb-diapers-api.193b.starter-ca-central-1.openshiftapps.com/datastore';
+var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
+//var url = 'mongodb://' + username + ':' + password + '@mongodb-diapers-api.193b.starter-ca-central-1.openshiftapps.com/datastore';
 
 // Connect using MongoClient
 mongoose.connect(url, { useMongoClient: true });
