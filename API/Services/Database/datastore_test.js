@@ -8,20 +8,36 @@ var dbName = 'Datastore';
 var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 //var url = 'mongodb://' + username + ':' + password + '@mongodb-diapers-api.193b.starter-ca-central-1.openshiftapps.com/datastore';
 
+//Schema
+var itemSchema = mongoose.Schema({
+	itemType: String,
+	Title: String
+});
+
+//Create DB Model
+var item = mongoose.model('item', itemSchema);
+
 // Connect using MongoClient
 mongoose.connect(url, { useMongoClient: true });
 
 //On Connection Create A New Schema
 var db = mongoose.connection;
 	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', function(result) {
-  		console.log('connected: ' + result);
+	db.once('open', function() {
+  		console.log('db connected');
 	});
 
+//
 exports.status = function(){
 	return new Promise (function(resolve,reject){
 		resolve (mongoose.connection);
 	}).catch(function(err){
 		reject (err);
 	});
+}
+
+exports.createItem = function(itemData){
+	if (itemData) {
+		new item({name:itemData.name});
+	} else throw new Error('itemData is incomplete');
 }
