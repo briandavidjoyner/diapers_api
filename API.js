@@ -22,16 +22,12 @@ router_API.get('/db', function(req,res){
 	console.log(database.status());
 });
 
-router_API.get('/addItem', function(req,res){
-<<<<<<< HEAD
-	database.createItem().then(function(result){
-=======
-	database.createItem('cat').then(function(result){
->>>>>>> parent of 39732f7... Test createItem
-		res.send(result);
-	}).catch(function(err){
-		res.send(err);
-	});
-});
+//router_API.get('/addItem', function(req,res){
+//	database.createItem('cat').then(function(result){
+//		res.send(result);
+//	}).catch(function(err){
+//		res.send(err);
+//	});
+//});
 
 module.exports = router_API;

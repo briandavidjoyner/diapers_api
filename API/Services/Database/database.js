@@ -37,8 +37,8 @@ exports.status = function(){
 	});
 }
 
-exports.createItem = function(itemData){
-	if (itemData) {
-		new item({name:itemData.name});
-	} else throw new Error('itemData is incomplete');
-}
+//exports.createItem = function(itemData){
+//	if (itemData) {
+//		new item({name:itemData.name});
+//	} else throw new Error('itemData is incomplete');
+//}
