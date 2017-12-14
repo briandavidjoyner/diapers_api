@@ -24,8 +24,10 @@ router_API.get('/db', function(req,res){
 
 router_API.get('/addItem', function(req,res){
 	database.createItem().then(function(result){
-		
-	})
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
 });
 
 module.exports = router_API;
