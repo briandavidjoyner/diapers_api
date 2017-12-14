@@ -1,13 +1,13 @@
 var	Promise = require('promise');
 var mongoose = require ('mongoose');
-var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
+var username = process.env.MONGODB_USER || 'userTNE';
 var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
 var dbName = process.env.MONGODB_DATABASE || 'datastore';
 var dbMethods
 
 //Comment Out For Production
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
+//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -40,5 +40,6 @@ exports.status = function(){
 exports.createItem = function(itemData){
 	if (itemData) {
 		new item({name:itemData.name});
+		return 'done';
 	} else throw new Error('itemData is incomplete');
 }
