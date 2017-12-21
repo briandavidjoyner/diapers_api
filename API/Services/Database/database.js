@@ -1,13 +1,13 @@
 var	Promise = require('promise');
 var mongoose = require ('mongoose');
-var username = process.env.MONGODB_USER || 'l4HtCfx7b3c3hcuN';
-var password = process.env.MONGODB_PASSWORD || 'l4HtCfx7b3c3hcuN';
+var username = process.env.MONGODB_USER;
+var password = process.env.MONGODB_PASSWORD;
 var dbName = process.env.MONGODB_DATABASE || 'datastore';
-var dbMethods
+var dbMethods;
 
 //Comment Out For Production
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
-//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;
+//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
 
 //Schema
 var itemSchema = mongoose.Schema({
