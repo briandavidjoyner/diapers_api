@@ -18,8 +18,9 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 });
 
 router_API.get('/db', function(req,res){
-	res.send(database.status());
-	console.log(database.status());
+	res.send(database.status().then(function(result){
+		console.log('finished');
+		}));
 });
 
 //router_API.get('/addItem', function(req,res){
