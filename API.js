@@ -19,24 +19,11 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 });
 
 router_API.get('/db', function(req,res){
-	/* database.status().then(function(data){
-		res.send({result: data});;
+	database.status().then(function(result){
+		res.json(result);
 	}).catch(function(err){
 		res.send(err);
-	}); */
-	res.send(database.status)
+	});
 });
-
-router_API.get('/db/sample.json', function(req,res){
-	res.send(db_sample.sample);
-});
-
-//router_API.get('/addItem', function(req,res){
-//	database.createItem('cat').then(function(result){
-//		res.send(result);
-//	}).catch(function(err){
-//		res.send(err);
-//	});
-//});
 
 module.exports = router_API;
