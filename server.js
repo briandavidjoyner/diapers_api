@@ -29,7 +29,6 @@ app.get('/db', function (req, res) {
 
 app.get('*', function (req, res) {
 	res.sendFile(__dirname + '/public/views/pages/index.html');
-
 });
 
 //app Initialize
