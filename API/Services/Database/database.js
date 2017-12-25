@@ -31,9 +31,12 @@ var db = mongoose.connection;
 //Methods
 exports.status = function(){
 	return new Promise (function(resolve,reject){
-		resolve (mongoose.connection);
-	}).catch(function(err){
-		reject (err);
+		if (db1) { 
+			resolve(db); 
+		} else { 
+			console.log('error');
+			throw new Error ('This does not work'); 
+		}
 	});
 }
 
