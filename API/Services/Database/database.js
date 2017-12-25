@@ -6,8 +6,8 @@ var dbName = process.env.MONGODB_DATABASE || 'datastore';
 var dbMethods;
 
 //Comment Out For Production
-//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
-var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
+var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -30,18 +30,14 @@ var db = mongoose.connection;
 
 //Methods
 exports.status = function(){
-	return new Promise (function(resolve,reject){
-		if (db1) { 
-			resolve(db); 
-		} else { 
-			console.log('error');
-			throw new Error ('This does not work'); 
+	return new Promise(function(resolve,reject){
+		if (db._readyState == 1){
+			resolve ({
+				status:db._readyState,
+				states: db.states
+			});
+		} else {
+			reject ('does not exist');
 		}
 	});
 }
-
-//exports.createItem = function(itemData){
-//	if (itemData) {
-//		new item({name:itemData.name});
-//	} else throw new Error('itemData is incomplete');
-//}
