@@ -3,7 +3,6 @@ var mongoose = require ('mongoose');
 var username = process.env.MONGODB_USER;
 var password = process.env.MONGODB_PASSWORD;
 var dbName = process.env.MONGODB_DATABASE;
-var dbMethods;
 
 //Comment Out For Production
 var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
@@ -11,8 +10,16 @@ var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 
 //Schema
 var itemSchema = mongoose.Schema({
-	itemType: String,
-	Title: String
+	type: {type: String, required: true},
+	vendor: {type: String, required: true},
+	brand: {type: String, required: true},
+	url: {type: String, required: true},
+	image: {type: String, required: true},
+	price: {type: String, required: true},
+	units: {type: String, required: true},
+	pricePerUnit: {type: String, required: true},
+	size: {type: String, required: true},
+	time: {type: Date, default: Date.now}
 });
 
 //Create DB Model
