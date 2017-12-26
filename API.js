@@ -27,4 +27,16 @@ router_API.get('/db', function(req,res){
 	});
 });
 
+//For Unit Tests
+router_API.get('/db/additem/:item', function(req,res){
+	database.addItems({
+		type: req.params.item,
+		price: 32
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+})
+
 module.exports = router_API;
