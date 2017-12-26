@@ -2,9 +2,10 @@ var express = require('express');
 var	Promise = require('promise');
 var router_API = express.Router([options]);
 var options;
-//var mailchimp = require('./API/Services/Mail/mailchimp.js');
+
+//APIs
+var mailchimp = require('./API/Services/Mail/mailchimp.js');
 var database = require('./API/Services/Database/database.js');
-var db_sample = require('./API/Services/Database/sample.js');
 
 router_API.get('/route1', function(req, res) {
     res.send('OMG... Google Cloud Kinda Rules, But Openshift Isn\'t awful...'); 
