@@ -3,6 +3,7 @@ var mongoose = require ('mongoose');
 var username = process.env.MONGODB_USER;
 var password = process.env.MONGODB_PASSWORD;
 var dbName = process.env.MONGODB_DATABASE;
+var db;
 
 //Comment Out For Production
 var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
@@ -10,30 +11,27 @@ var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 
 //Schema
 var itemSchema = mongoose.Schema({
-	type: {type: String, required: true},
-	vendor: {type: String, required: true},
-	brand: {type: String, required: true},
-	url: {type: String, required: true},
-	image: {type: String, required: true},
-	price: {type: String, required: true},
-	units: {type: String, required: true},
-	pricePerUnit: {type: String, required: true},
-	size: {type: String, required: true},
-	time: {type: Date, default: Date.now}
+	type: {type: String, required: true}
+	//vendor: {type: String, required: true},
+	//brand: {type: String, required: true},
+	//url: {type: String, required: true},
+	//image: {type: String, required: true},
+	//price: {type: String, required: true},
+	//units: {type: String, required: true},
+	//pricePerUnit: {type: String, required: true},
+	//size: {type: String, required: true}
 });
 
 //Create DB Model
 var item = mongoose.model('item', itemSchema);
 
 // Connect using MongoClient
-mongoose.connect(url, { useMongoClient: true });
-
-//On Connection Create A New Schema
-var db = mongoose.connection;
-	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', function() {
-  		console.log('db connected');
-	});
+mongoose.connect(url, { useMongoClient: true }).then(function(){
+	console.log('db connection established');
+	db = mongoose.connection;
+}).catch(function(err){
+	console.log(err);
+});
 
 //Methods
 exports.status = function(){
@@ -44,7 +42,18 @@ exports.status = function(){
 				states: db.states
 			});
 		} else {
-			reject ('does not exist');
+			reject ('database is not connected');
 		}
+	});
+}
+
+exports.addItems = function(items){
+	return new Promise (function(resolve,reject){
+		console.log(items);
+		item.insertMany(items, ordered = true).then(function(result){
+			resolve (result);
+		}).catch(function(err){
+			reject (err);
+		});
 	});
 }
