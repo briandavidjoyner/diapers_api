@@ -6,8 +6,8 @@ var dbName = process.env.MONGODB_DATABASE;
 var db;
 
 //Comment Out For Production
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
-//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
+//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -33,7 +33,7 @@ mongoose.connect(url, { useMongoClient: true }).then(function(){
 	console.log(err);
 });
 
-//Methods
+//Status
 exports.status = function(){
 	return new Promise(function(resolve,reject){
 		if (db._readyState == 1){
@@ -47,6 +47,7 @@ exports.status = function(){
 	});
 }
 
+//Add Items
 exports.addItems = function(items){
 	return new Promise (function(resolve,reject){
 		console.log(items);
@@ -54,6 +55,17 @@ exports.addItems = function(items){
 			resolve (result);
 		}).catch(function(err){
 			reject (err);
+		});
+	});
+}
+
+//Find Items
+exports.findItems = function(query){
+	return new Promise (function(resolve,reject){
+		item.find(query).then(function(result){
+			resolve (result);
+		}).catch(function(err){
+			reject(err);
 		});
 	});
 }

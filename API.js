@@ -1,17 +1,15 @@
 var express = require('express');
-var	Promise = require('promise');
 var router_API = express.Router([options]);
 var options;
+var	Promise = require('promise');
 
 //APIs
 var mailchimp = require('./API/Services/Mail/mailchimp.js');
 var database = require('./API/Services/Database/database.js');
+var amazon = require('./API/Services/Lookups/Amazon/amazon.js');
 
-router_API.get('/route1', function(req, res) {
-    res.send('OMG... Google Cloud Kinda Rules, But Openshift Isn\'t awful...'); 
-});
-
-router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
+//Email API
+router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 	mailchimp.subscribe(req.params.email,req.params.size,req.params.brand).then(function(result){
 		res.send(result);
 	}).catch(function(err){
@@ -19,6 +17,7 @@ router_API.get('/mail/subscribe/:email/:size/:brand', function(req, res){
 	});
 });
 
+//
 router_API.get('/db', function(req,res){
 	database.status().then(function(result){
 		res.json(result);
@@ -27,7 +26,7 @@ router_API.get('/db', function(req,res){
 	});
 });
 
-//For Unit Tests
+//For Testing
 router_API.get('/db/additem/:item', function(req,res){
 	database.addItems({
 		type: req.params.item,
@@ -37,6 +36,33 @@ router_API.get('/db/additem/:item', function(req,res){
 	}).catch(function(err){
 		res.send(err);
 	});
-})
+});
+
+router_API.get('/amazon/diapers/:brand/:page', function(req,res){
+	amazon.diaperlookup(req.params.brand,req.params.page).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+router_API.get('/amazon/diaperwipes/:brand/:page', function(req,res){
+	amazon.diaperwipeslookup(req.params.brand,req.params.page).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+//Find Items
+router_API.get('/db/finditemsbytype/:type', function(req,res){
+	database.findItems({
+		type: req.params.type
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
 
 module.exports = router_API;
