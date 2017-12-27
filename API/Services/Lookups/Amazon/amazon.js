@@ -1,3 +1,5 @@
+//API Docs http://docs.aws.amazon.com/AWSECommerceService/latest/DG/ItemSearch.html
+//API On NPM https://www.npmjs.com/package/apac
 var amazon = require('apac').OperationHelper;
 var aws = new amazon({
     awsId: process.env.amazonAccessKeyId,
