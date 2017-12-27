@@ -12,14 +12,15 @@ var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 //Schema
 var itemSchema = mongoose.Schema({
 	type: {type: String, required: true}
-	//vendor: {type: String, required: true},
-	//brand: {type: String, required: true},
-	//url: {type: String, required: true},
-	//image: {type: String, required: true},
-	//price: {type: String, required: true},
-	//units: {type: String, required: true},
-	//pricePerUnit: {type: String, required: true},
-	//size: {type: String, required: true}
+	vendor: {type: String, required: true},
+	title: {type: String, required: true},
+	brand: {type: String, required: true},
+	url: {type: String, required: true},
+	image: {type: String, required: true},
+	price: {type: String, required: true},
+	units: {type: String, required: true},
+	pricePerUnit: {type: String, required: true},
+	size: {type: String, required: true}
 });
 
 //Create DB Model
