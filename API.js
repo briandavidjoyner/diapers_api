@@ -8,6 +8,7 @@ var mailchimp = require('./API/Services/Mail/mailchimp.js');
 var database = require('./API/Services/Database/database.js');
 var amazon = require('./API/Services/Lookups/Amazon/amazon.js');
 var walmart = require('./API/Services/Lookups/Walmart/walmart.js');
+var standarize = require('./API/Services/Lookups/Lookup.js').output;
 
 //Email API
 router_API.get('/subscribe/:email/:size/:brand', function(req, res){
@@ -46,6 +47,15 @@ router_API.get('/db', function(req,res){
 						res.send(err);
 					});
 				});
+
+								router_API.get('/amazon/diapers/standarized/:brand/:page', function(req,res){
+									standarize(req.params.brand,req.params.page).then(function(result){
+										res.send(result);
+									}).catch(function(err){
+										res.send(err);
+									});
+								});
+
 
 				router_API.get('/amazon/diaperwipes/:brand/:page', function(req,res){
 					amazon.diaperwipeslookup(req.params.brand,req.params.page).then(function(result){
