@@ -11,7 +11,7 @@ var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 
 //Schema
 var itemSchema = mongoose.Schema({
-	type: {type: String, required: true}
+	type: {type: String, required: true},
 	vendor: {type: String, required: true},
 	title: {type: String, required: true},
 	brand: {type: String, required: true},
