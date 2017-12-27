@@ -6,20 +6,21 @@ var dbName = process.env.MONGODB_DATABASE;
 var db;
 
 //Comment Out For Production
-//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
-var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
+var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
 
 //Schema
 var itemSchema = mongoose.Schema({
-	type: {type: String, required: true}
-	//vendor: {type: String, required: true},
-	//brand: {type: String, required: true},
-	//url: {type: String, required: true},
-	//image: {type: String, required: true},
-	//price: {type: String, required: true},
-	//units: {type: String, required: true},
-	//pricePerUnit: {type: String, required: true},
-	//size: {type: String, required: true}
+	type: {type: String, required: true},
+	vendor: {type: String, required: true},
+	title: {type: String, required: true},
+	brand: {type: String, required: true},
+	url: {type: String, required: true},
+	image: {type: String, required: true},
+	price: {type: String, required: true},
+	units: {type: String, required: true},
+	pricePerUnit: {type: String, required: true},
+	size: {type: String, required: true}
 });
 
 //Create DB Model
