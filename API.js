@@ -8,9 +8,12 @@ var mailchimp = require('./API/Services/Mail/mailchimp.js');
 var database = require('./API/Services/Database/database.js');
 var amazon = require('./API/Services/Lookups/Amazon/amazon.js');
 var walmart = require('./API/Services/Lookups/Walmart/walmart.js');
-var standarize = require('./API/Services/Lookups/Lookup.js').output;
+var standardize = require('./API/Services/Lookups/Lookup.js').standardize;
 
-//Email API
+//////////////////////////////////////////
+//Email API///////////////////////////////
+//////////////////////////////////////////
+
 router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 	mailchimp.subscribe(req.params.email,req.params.size,req.params.brand).then(function(result){
 		res.send(result);
@@ -19,8 +22,12 @@ router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 	});
 });
 
-//
-router_API.get('/db', function(req,res){
+
+//////////////////////////////////////////
+//For Testing/////////////////////////////
+//////////////////////////////////////////
+
+router_API.get('/db/test/status', function(req,res){
 	database.status().then(function(result){
 		res.json(result);
 	}).catch(function(err){
@@ -28,7 +35,6 @@ router_API.get('/db', function(req,res){
 	});
 });
 
-//For Testing
 router_API.get('/db/test/add', function(req,res){
 	database.addItems({
 		type: 'test item',
@@ -64,7 +70,10 @@ router_API.get('/db/test/remove', function(req,res){
 	});
 });
 
-//Amazon API
+//////////////////////////////////////////
+//Amazon API//////////////////////////////
+//////////////////////////////////////////
+
 router_API.get('/amazon/diapers/:brand/:page', function(req,res){
 	amazon.diaperlookup(req.params.brand,req.params.page).then(function(result){
 		res.send(result);
@@ -74,22 +83,26 @@ router_API.get('/amazon/diapers/:brand/:page', function(req,res){
 });
 
 router_API.get('/amazon/diapers/standarized/:brand/:page', function(req,res){
-	standarize(req.params.brand,req.params.page).then(function(result){
+	standardize('amazon','diapers',req.params.brand,req.params.page).then(function(result){
 		res.send(result);
 	}).catch(function(err){
 		res.send(err);
 	});
 });
 
-router_API.get('/amazon/diaperwipes/:brand/:page', function(req,res){
-	amazon.diaperwipeslookup(req.params.brand,req.params.page).then(function(result){
-		res.send(result);
-	}).catch(function(err){
-		res.send(err);
-	});
-});
+//To Build 12.27.2017
+//router_API.get('/amazon/diaperwipes/:brand/:page', function(req,res){
+//	amazon.diaperwipeslookup(req.params.brand,req.params.page).then(function(result){
+//		res.send(result);
+//	}).catch(function(err){
+//		res.send(err);
+//	});
+//});
 
-//Walmart API
+//////////////////////////////////////////
+//Walmart API/////////////////////////////
+//////////////////////////////////////////
+
 router_API.get('/walmart/diapers/:brand/:page', function(req,res){
 	walmart.diaperlookup(req.params.brand,req.params.page).then(function(result){
 		res.send(result);
@@ -98,7 +111,10 @@ router_API.get('/walmart/diapers/:brand/:page', function(req,res){
 	});
 });
 
-//Dababase Queries
+//////////////////////////////////////////
+//Dababase Queries////////////////////////
+//////////////////////////////////////////
+
 router_API.get('/db/finditemsbytype/:type', function(req,res){
 	database.findItems({
 		type: req.params.type
