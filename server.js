@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 	res.sendFile(__dirname + '/public/views/pages/static.html');
 });
 
-//Catch All
+//Catch All Route
 app.get('*', function (req, res) {
 	res.sendFile(__dirname + '/public/views/pages/index.html');
 });
