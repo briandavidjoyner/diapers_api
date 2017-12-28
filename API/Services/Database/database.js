@@ -51,7 +51,6 @@ exports.status = function(){
 //Add Items
 exports.addItems = function(items){
 	return new Promise (function(resolve,reject){
-		console.log(items);
 		item.insertMany(items, ordered = true).then(function(result){
 			resolve (result);
 		}).catch(function(err){
@@ -69,4 +68,15 @@ exports.findItems = function(query){
 			reject(err);
 		});
 	});
+}
+
+//Remove Items
+exports.removeItems = function(query){
+  	return new Promise(function(resolve,reject){
+    	item.remove(query).then(function(result){
+        	resolve(result);
+      	}).catch(function(err){
+        	reject (err);
+      	});
+  	});
 }
