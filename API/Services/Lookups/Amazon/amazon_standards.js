@@ -20,7 +20,7 @@ exports.Standardize = function(type,input){
 					 	input[i].ItemAttributes.Size != undefined
 						) { 
 							output.push({
-								type: 'diaper',
+								type: 'diapers',
 								vendor: 'amazon',
 								title: input[i].ItemAttributes.Title,
 								brand: input[i].ItemAttributes.Brand,

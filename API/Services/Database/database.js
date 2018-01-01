@@ -29,6 +29,7 @@ var item = mongoose.model('item', itemSchema);
 // Connect using MongoClient
 mongoose.connect(url, { useMongoClient: true }).then(function(){
 	console.log('db connection established');
+	var start = require('../Lookups/interval.js');
 	db = mongoose.connection;
 }).catch(function(err){
 	console.log(err);
