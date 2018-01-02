@@ -6,8 +6,8 @@ var dbName = process.env.MONGODB_DATABASE;
 var db;
 
 //Comment Out For Production
-var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
-//var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
+//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+var url = 'mongodb://' + username + ':' + password + '@127.0.0.1:27017/' + dbName;  //Works locally
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -29,6 +29,7 @@ var item = mongoose.model('item', itemSchema);
 // Connect using MongoClient
 mongoose.connect(url, { useMongoClient: true }).then(function(){
 	console.log('db connection established');
+	var start = require('../Lookups/interval.js');
 	db = mongoose.connection;
 }).catch(function(err){
 	console.log(err);
@@ -51,7 +52,6 @@ exports.status = function(){
 //Add Items
 exports.addItems = function(items){
 	return new Promise (function(resolve,reject){
-		console.log(items);
 		item.insertMany(items, ordered = true).then(function(result){
 			resolve (result);
 		}).catch(function(err){
@@ -69,4 +69,15 @@ exports.findItems = function(query){
 			reject(err);
 		});
 	});
+}
+
+//Remove Items
+exports.removeItems = function(query){
+  	return new Promise(function(resolve,reject){
+    	item.remove(query).then(function(result){
+        	resolve(result);
+      	}).catch(function(err){
+        	reject (err);
+      	});
+  	});
 }
