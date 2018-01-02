@@ -1,7 +1,7 @@
 var Promise = require('promise');
 var Twilio = require('../../../node_modules/twilio/lib');
-var accountSid = process.env.TWILIO_ACCOUNT_SID || 'ACbbe1bfcac2adacfb7f50b330dded1d84';
-var token = process.env.TWILIO_AUTH_TOKEN || 'dfb8a4c46cfb99e2e8c6e88085258485';
+var accountSid = process.env.TWILIO_ACCOUNT_SID;
+var token = process.env.TWILIO_AUTH_TOKEN;
 
 var twilio = new Twilio(accountSid, token);
 
