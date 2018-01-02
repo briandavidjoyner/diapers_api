@@ -127,6 +127,7 @@ router_API.get('/walmart/diapers/:brand/:page', function(req,res){
 //////////////////////////////////////////
 //Dababase Queries////////////////////////
 //////////////////////////////////////////
+
 router_API.get('/db/finditemsbytype/:type', function(req,res){
 	database.findItems({
 		type: req.params.type

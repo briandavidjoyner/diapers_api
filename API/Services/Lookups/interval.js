@@ -52,5 +52,5 @@ addDiapers = function(){
 addDiapers().then(function(){console.log('Items Populating @ ' + new Date());});
 setInterval(function(){
 		addDiapers();
-		console.log(new Date());
+		//console.log(new Date());
 }, (interval*60*1000));
