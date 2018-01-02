@@ -5,6 +5,7 @@ var	Promise = require('promise');
 
 //APIs
 var mailchimp = require('./API/Services/Mail/mailchimp.js');
+var twilio = require('./API/Services/Twilio/twilio.js');
 var database = require('./API/Services/Database/database.js');
 var amazon = require('./API/Services/Lookups/Amazon/amazon.js');
 var walmart = require('./API/Services/Lookups/Walmart/walmart.js');
@@ -16,6 +17,18 @@ var standardize = require('./API/Services/Lookups/Lookup.js').standardize;
 
 router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 	mailchimp.subscribe(req.params.email,req.params.size,req.params.brand).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+//////////////////////////////////////////
+//Twilio API///////////////////////////////
+//////////////////////////////////////////
+
+router_API.get('/message', function(req, res){
+	twilio.twilio().then(function(result){
 		res.send(result);
 	}).catch(function(err){
 		res.send(err);
