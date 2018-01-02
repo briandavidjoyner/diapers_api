@@ -48,55 +48,6 @@ router_API.get('/db/test/status', function(req,res){
 	});
 });
 
-<<<<<<< HEAD
-				//For Testing
-				//router_API.get('/db/additem/:item', function(req,res){
-				//	database.addItems({
-				//		type: req.params.item,
-				//		price: 32
-				//	}).then(function(result){
-				//		res.send(result);
-				//	}).catch(function(err){
-				//		res.send(err);
-				//	});
-				//});
-
-				router_API.get('/amazon/diapers/:brand/:page', function(req,res){
-					amazon.diaperlookup(req.params.brand,req.params.page).then(function(result){
-						res.send(result);
-					}).catch(function(err){
-						res.send(err);
-					});
-				});
-
-								router_API.get('/amazon/diapers/standarized/:brand/:page', function(req,res){
-									standarize(req.params.brand,req.params.page).then(function(result){
-										res.send(result);
-									}).catch(function(err){
-										res.send(err);
-									});
-								});
-
-
-				router_API.get('/amazon/diaperwipes/:brand/:page', function(req,res){
-					amazon.diaperwipeslookup(req.params.brand,req.params.page).then(function(result){
-						res.send(result);
-					}).catch(function(err){
-						res.send(err);
-					});
-				});
-
-				router_API.get('/walmart/diapers/:brand/:page', function(req,res){
-					walmart.diaperlookup(req.params.brand,req.params.page).then(function(result){
-						res.send(result);
-					}).catch(function(err){
-						res.send(err);
-					});
-				});
-
-
-//Find Items
-=======
 router_API.get('/db/test/add', function(req,res){
 	database.addItems({
 		type: 'test item',
@@ -131,15 +82,6 @@ router_API.get('/db/test/remove', function(req,res){
 		res.send(err);
 	});
 });
-
-//router_API.get('/db/test/amazon/add', function(req,res){
-//	var addItems = require('./API/Services/Lookups/interval.js');
-//	addItems.toDB('amazon','diapers','huggies',1).then(function(result){
-//		res.send(result);
-//	}).catch(function(err){
-//		res.send(err);
-//	});
-//});
 
 //////////////////////////////////////////
 //Amazon API//////////////////////////////
@@ -185,8 +127,6 @@ router_API.get('/walmart/diapers/:brand/:page', function(req,res){
 //////////////////////////////////////////
 //Dababase Queries////////////////////////
 //////////////////////////////////////////
-
->>>>>>> QA
 router_API.get('/db/finditemsbytype/:type', function(req,res){
 	database.findItems({
 		type: req.params.type
