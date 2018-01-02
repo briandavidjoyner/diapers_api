@@ -16,8 +16,7 @@ exports.subscribe = function(email,size,brand){
         SIZE:size, 
         BRAND:brand
       }
-    })
-    .then(function(results){
+    }).then(function(results){
       resolve({status:'success',inputs:{email:email,size:size,brand:brand},results:results});
     }).catch(function(error){
       if (error.error) {
