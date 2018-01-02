@@ -27,8 +27,8 @@ router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 //Twilio API///////////////////////////////
 //////////////////////////////////////////
 
-router_API.get('/message', function(req, res){
-	twilio.twilio().then(function(result){
+router_API.get('/sms/message/:phone', function(req, res){
+	twilio.twilio(req.params.phone).then(function(result){
 		res.send(result);
 	}).catch(function(err){
 		res.send(err);
