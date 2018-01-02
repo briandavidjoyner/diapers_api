@@ -83,15 +83,6 @@ router_API.get('/db/test/remove', function(req,res){
 	});
 });
 
-//router_API.get('/db/test/amazon/add', function(req,res){
-//	var addItems = require('./API/Services/Lookups/interval.js');
-//	addItems.toDB('amazon','diapers','huggies',1).then(function(result){
-//		res.send(result);
-//	}).catch(function(err){
-//		res.send(err);
-//	});
-//});
-
 //////////////////////////////////////////
 //Amazon API//////////////////////////////
 //////////////////////////////////////////
