@@ -1,13 +1,17 @@
 var Promise = require('promise');
 var database = require('../Database/database.js');
 var standardize = require('./Lookup.js').standardize;
+var postProcess = require('./Lookup.js').postProcess;
 var interval = 5; //In Minutes
 var toExport = {};
 
 var toDB = function(vendor,type,brand,page){
 	return new Promise(function(resolve,reject){
 		standardize(vendor,type,brand,page).then(function(result){
-			database.addItems(result);
+			return postProcess(result,type);
+		}).then(function(result){
+			return database.addItems(result);
+		}).then(function(result){
 			resolve (result);
 		}).catch(function(err){
 			reject (err);

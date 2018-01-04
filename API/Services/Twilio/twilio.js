@@ -12,7 +12,7 @@ var send = function(phone,message){
 		twilio.messages.create({
   			from: '+12075604170',
   			to: '+1' + phone,
-  			body: 'Hello!  This works as expected'
+  			body: 'Hello!  Tyler isn\'t going to know what hit him.  Muhahahahah!  http://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/api/sms/message/9196360365'
 		}).then(function(result){
 			resolve(result);
 		}).catch(function(err){

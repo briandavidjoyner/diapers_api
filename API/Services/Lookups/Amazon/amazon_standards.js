@@ -1,5 +1,9 @@
 var Promise = require('promise');
 
+//////////////////////////////////////////
+//Main Processing/////////////////////////
+//////////////////////////////////////////
+
 exports.Standardize = function(type,input){
 	
 	var input = input.Item;
@@ -45,3 +49,36 @@ exports.Standardize = function(type,input){
 		}
 	});
 }
+
+//////////////////////////////////////////
+//Post Processing/////////////////////////
+//////////////////////////////////////////
+
+exports.postProcess = function(data, type){
+	
+	var input = data;
+	var end = input.length;
+	var output = [];
+	var processed = 0;
+
+	return new Promise(function(resolve,reject){
+
+		try { 
+			for (var i in data){
+				var size = data.size;
+				if (type == diapers){
+					size.replace((/size\s/), '');
+				} else { reject ('Type is not defined'); } //Is this the way to handle this?
+		
+			processed ++;
+
+			if (processed == end){ resolve (output); }
+
+			}
+
+		} catch (err) {
+			reject (err);
+		}
+	});
+}
+
