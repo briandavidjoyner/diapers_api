@@ -14,7 +14,7 @@ exports.Standardize = function(type,input){
 	return new Promise(function(resolve,reject){
 		try {
 			for (var i in input){
-				
+
 				if (type == 'diapers'){
 					if (input[i].ItemAttributes.Brand != undefined &&
 					 	input[i].DetailPageURL != undefined &&
@@ -54,10 +54,9 @@ exports.Standardize = function(type,input){
 //Post Processing/////////////////////////
 //////////////////////////////////////////
 
-exports.postProcess = function(data, type){
-	
-	var input = data;
-	var end = input.length;
+exports.postProcess = function(type, data){
+
+	var end = data.length;
 	var output = [];
 	var processed = 0;
 
@@ -65,10 +64,12 @@ exports.postProcess = function(data, type){
 
 		try { 
 			for (var i in data){
-				var size = data.size;
-				if (type == diapers){
-					size.replace((/size\s/), '');
-				} else { reject ('Type is not defined'); } //Is this the way to handle this?
+
+					if (type == diapers){
+						var size = data[i].size;
+						console.log(size);
+						size.replace((/size\s/), '');
+					} else { reject ('Type is not defined'); } //Is this the way to handle this?
 		
 			processed ++;
 

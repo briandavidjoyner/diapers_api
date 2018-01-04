@@ -12,6 +12,13 @@ _this.standardize = function(vendor,type,brand,page){
 			return new Promise(function(resolve,reject){
 				amazon.diaperlookup(brand,page).then(function(result){
 					return standarize.Standardize('diapers',result);
+				
+
+				//To Fix - Not Indexing Correctly		
+				//}).then(function(output){
+				//	return standarize.postProcess('diapers',output);
+				
+
 				}).then(function(output){
 					resolve (output);
 				}).catch(function(err){
@@ -23,6 +30,8 @@ _this.standardize = function(vendor,type,brand,page){
 
 	} else { return new Promise(function(resolve,reject){ reject ('Vendor is not defined') });}
 }
+
+
 
 
 //////////////////////////////////////////
