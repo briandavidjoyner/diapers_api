@@ -65,12 +65,16 @@ exports.postProcess = function(type, data){
 		try { 
 			for (var i in data){
 
-					if (type == diapers){
+					if (type == 'diapers'){
 						var size = data[i].size;
+						//console.log(size);
+						size = size.replace((/\wize\s/), '', function(result){ 
+							size=result; 
+							output.push(data[i]);
+						});
 						console.log(size);
-						size.replace((/size\s/), '');
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
-		
+
 			processed ++;
 
 			if (processed == end){ resolve (output); }

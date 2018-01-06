@@ -138,4 +138,21 @@ router_API.get('/db/finditemsbytype/:type', function(req,res){
 	});
 });
 
+var test = require('./API/Services/Lookups/interval.js');
+
+router_API.get('/test', function(req,res){
+	test.test().then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 module.exports = router_API;
+
+
+
+
+
+
+

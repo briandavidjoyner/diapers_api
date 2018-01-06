@@ -14,9 +14,9 @@ _this.standardize = function(vendor,type,brand,page){
 					return standarize.Standardize('diapers',result);
 				
 
-				//To Fix - Not Indexing Correctly		
-				//}).then(function(output){
-				//	return standarize.postProcess('diapers',output);
+	
+				}).then(function(input){
+					return standarize.postProcess('diapers',input);
 				
 
 				}).then(function(output){

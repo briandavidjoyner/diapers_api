@@ -7,9 +7,9 @@ var toExport = {};
 var toDB = function(vendor,type,brand,page){
 	return new Promise(function(resolve,reject){
 		standardize(vendor,type,brand,page).then(function(result){
-			return database.addItems(result);
+			database.addItems(result);
 		}).then(function(result){
-			resolve (result);
+			resolve ();
 		}).catch(function(err){
 			reject (err);
 		});
@@ -42,6 +42,16 @@ addDiapers = function(){
 			resolve ();
 		}).catch(function(err){
 			reject ();
+		});
+	});
+}
+
+exports.test = function(){
+	return new Promise(function(resolve,reject){
+		toDB('amazon','diapers','huggies',1).then(function(result){
+			resolve (result);
+		}).catch(function(err){
+			reject (err);
 		});
 	});
 }
