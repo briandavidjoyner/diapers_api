@@ -72,7 +72,7 @@ exports.postProcess = function(type, data){
 							size=result; 
 							output.push(data[i]);
 						});
-						console.log(size);
+						//console.log(size);
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
 
 			processed ++;
