@@ -8,6 +8,7 @@ var toDB = function(vendor,type,brand,page){
 	return new Promise(function(resolve,reject){
 		standardize(vendor,type,brand,page).then(function(result){
 			database.addItems(result);
+			//console.log(result);
 		}).then(function(result){
 			resolve ();
 		}).catch(function(err){

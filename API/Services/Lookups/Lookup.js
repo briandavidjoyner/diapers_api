@@ -16,8 +16,8 @@ _this.standardize = function(vendor,type,brand,page){
 
 	
 				}).then(function(input){
+					//console.log(input);  // Issue
 					return standarize.postProcess('diapers',input);
-				
 
 				}).then(function(output){
 					resolve (output);

@@ -57,7 +57,6 @@ exports.Standardize = function(type,input){
 exports.postProcess = function(type, data){
 
 	var end = data.length;
-	var output = [];
 	var processed = 0;
 
 	return new Promise(function(resolve,reject){
@@ -66,18 +65,12 @@ exports.postProcess = function(type, data){
 			for (var i in data){
 
 					if (type == 'diapers'){
-						var size = data[i].size;
-						//console.log(size);
-						size = size.replace((/\wize\s/), '', function(result){ 
-							size=result; 
-							output.push(data[i]);
-						});
-						//console.log(size);
+						data[i].size = data[i].size.replace((/\wize\s/), '');
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
 
 			processed ++;
 
-			if (processed == end){ resolve (output); }
+			if (processed == end){ resolve (data); }
 
 			}
 
