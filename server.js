@@ -4,6 +4,7 @@ var	app = express();
 var	Promise = require('promise');
 var compression = require('compression');
 var API = require(__dirname + '/API.js');
+var legacy = require(__dirname + '/Legacy/legacy.js');
 
 //Port & IP Settings
 var port = process.env.PORT || 8080;
@@ -17,6 +18,9 @@ app.use('/public', express.static(__dirname + '/public'));
 
 //External Routing Of API
 app.use('/api', API);
+
+//External Routing Of API
+app.use('/legacy', legacy);
 
 //External Other Routes
 app.get('/', function (req, res) {
