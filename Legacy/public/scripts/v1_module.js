@@ -8,37 +8,39 @@ Angular Routing
 
 //Angular Routing
     app.config(function($routeProvider, $locationProvider){ 
-        $routeProvider.when('/', { 
+        $routeProvider.when('/legacy/', { 
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
             description: '',
             controller: 'diapers',
             resolve: {
                 title : function(){
                     return 'Discover The Best Diaper Deals From Amazon, Walmart, & More';
-                /*},
+                },
                 brandInfo : function(){
                     return {};
                 },
-                brandData : function(itemData){
-                    return itemData.get_unique_field_values('brand').then(function(result){
-                        return result.data.sort();
-                    });
-                    //return {};
-                },
+                //brandData : function(itemData){
+                //    return itemData.get_unique_field_values('brand').then(function(result){
+                //        return result.data.sort();
+                //    });
+                //    //return {};
+                //},
                 itemData : function(itemData){
                     return itemData.all().then(function(result){
                         return result;
+                    }).catch(function(err){
+                        console.log(err);
                     });
                     //return {};
-                },
-                sizeData : function(itemData){
-                    return itemData.get_unique_field_values('size').then(function(result){
-                        return result.data.sort(function(a, b){return a-b});
-                    });
-                    //return {}; 
-                */}
+                }
+//                sizeData : function(itemData){
+//                    return itemData.get_unique_field_values('size').then(function(result){
+//                        return result.data.sort(function(a, b){return a-b});
+//                    });
+//                    //return {}; 
+//                }
             }
-        }).when('/about', {
+        }).when('/legacy/about', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_about.html',
             description : '',
             controller: 'diapers',
@@ -62,7 +64,7 @@ Angular Routing
         })
         
         //Adding Guide Pages
-        .when('/guide/amazon_diaper_deals', {
+        .when('/legacy/guide/amazon_diaper_deals', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_guide.html',
             description : '',
             controller: 'diapers',
@@ -89,7 +91,7 @@ Angular Routing
         })
         //Guide Pages
 
-        .when('/brand/:brand', {
+        .when('/legacy/brand/:brand', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_brand.html',
             description : '',
             controller: 'diapers',
@@ -116,7 +118,7 @@ Angular Routing
                     return {};
                 */}
             }
-        }).when('/brand/:brand/size/:size', {
+        }).when('/legacy/brand/:brand/size/:size', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_brand.html',
             description : '',
             controller: 'diapers',
@@ -149,7 +151,7 @@ Angular Routing
             controller: 'diapers',
             resolve: {
                 title : function(){
-                    return 'Discover The Best Diaper Deals From Amazon, Walmart, & More';
+                    return '3Discover The Best Diaper Deals From Amazon, Walmart, & More';
                 /*},
                 brandInfo : function(){
                     return {};
@@ -306,15 +308,15 @@ Custom Componets
 //        }
 //    });
 
-//    app.directive('content', function () {
-//        return {
-//            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
-//            replace: true,
-//            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-//            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_content.html',
-//            //controller: 'diapers'
-//        }
-//    });
+    app.directive('content', function () {
+        return {
+            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+            replace: true,
+            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
+            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_content.html',
+            //controller: 'diapers'
+        }
+    });
 
 //    app.directive('contentpampers', function () {
 //        return {
@@ -383,13 +385,13 @@ Services
 ////////////////////*/
 
 //Item Data
-/*    app.factory('itemData',function($http){
-        
+    app.factory('itemData',function($http){
+
         var service = {};
         
         service.all = function(){
             return new Promise(function(resolve,reject){
-                $http.get('/api/getitems').then(function(result){
+                $http.get('/api/db/finditemsbytype/diapers').then(function(result){
                     resolve (result);
                 }).catch(function(error){
                     reject (error);
@@ -397,7 +399,7 @@ Services
             });
         };
 
-        service.brand = function(brand){
+/*        service.brand = function(brand){
             return new Promise(function(resolve,reject){
                 $http.get('/api/getitemsbybrand/' + brand).then(function(result){
                     resolve (result);
@@ -435,8 +437,8 @@ Services
                     reject (error);
                 });
             });
-        };
-        
+        };*/
+        window.service = service;
         return service;
 
     });
@@ -610,38 +612,39 @@ Services
 
     });
 
-/*////////////////////
+////////////////////
 
 //Controllers
 
 ////////////////////*/
 
     //Controllers
-    app.controller('diapers', ['$scope','$window', function($scope,$window){
+    app.controller('diapers', ['$scope','$window','brandInfo','itemData','title',
+     function($scope,$window,brandInfo,itemData,title){
     //app.controller('diapers', ['$scope','brandInfo','brandData','itemData','sizeData','$route','$window', 'title', 
     //    function($scope,brandInfo,brandData,itemData,sizeData,$route,$window,title){
 
     //Conversion Pixels
-        //$scope.referrer = ($window.document.referrer == "") ? 'Direct' : $window.document.referrer
+        $scope.referrer = ($window.document.referrer == "") ? 'Direct' : $window.document.referrer
         
         //Bing Conversion Pixel
-//            $scope.bing_conversion = function(){
-//                window.uetq = window.uetq || []; 
-//                window.uetq.push({ 'ec':'null', 'ea':'click_out', 'el':'null', 'ev':'0' });
-//                console.log('bing conversion');
-//            }
+            $scope.bing_conversion = function(){
+                window.uetq = window.uetq || []; 
+                window.uetq.push({ 'ec':'null', 'ea':'click_out', 'el':'null', 'ev':'0' });
+                console.log('bing conversion');
+            }
 
         //Google Conversion Pixel
-//            $scope.ga_event = function(vender,url){
-//                ga('send', 'event', {
-//                    eventCategory: 'Item Click',
-//                    eventAction: 'Click',
-//                    eventLabel: vender + '_' + $scope.referrer,
-//                    transport: 'beacon'
-//                });
-//                fbq('track', 'AddToCart');
-//                window.open(url);
-//            }
+            $scope.ga_event = function(vender,url){
+                ga('send', 'event', {
+                    eventCategory: 'Item Click',
+                    eventAction: 'Click',
+                    eventLabel: vender + '_' + $scope.referrer,
+                    transport: 'beacon'
+                });
+                fbq('track', 'AddToCart');
+                window.open(url);
+            }
 
     //Expose Scope
         window.stuff = $scope
@@ -661,15 +664,15 @@ Services
         }
 
     //Get Brand/Item Data
-//        $scope.brandInfo = brandInfo;
-//        $scope.brands = brandData;
-//        $scope.items = itemData.data;
+        $scope.brandInfo = brandInfo;
+        //$scope.brands = brandData;
+        $scope.items = itemData.data;
 //        $scope.sizes = sizeData;
         $scope.updateTime = new Date;
 
     //Meta Data Updates
         //document.title = $route.current.title;
-//        document.title = title;
+        document.title = title;
 
     //Menu
         $scope.dropdown = {menu:false,size:false,brand:false,content:true};
@@ -797,10 +800,10 @@ Custom Filters
 
 ////////////////////*/
 
-    /*app.filter('capitalize', function() {
+    app.filter('capitalize', function() {
         return function(input, scope) {
             if (input!=null)
             input = input.toLowerCase();
             return input.substring(0,1).toUpperCase()+input.substring(1);
         }
-    });*/
+    });
