@@ -232,9 +232,6 @@ Content Container
 	padding: 5vh 0vw 5vh 0vw
 }
 
-.rd_image{
-}
-
 /*
 Footer
 */
@@ -592,9 +589,6 @@ Size Table
 	.rd_content_blue{
 		background-color:rgb(38,34,98)!important;
 		color:white!important;
-	}
-
-	.rd_image{
 	}
 
 	#rd_content_full_width{
