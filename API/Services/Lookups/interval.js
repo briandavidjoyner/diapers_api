@@ -8,7 +8,6 @@ var toDB = function(vendor,type,brand,page){
 	return new Promise(function(resolve,reject){
 		standardize(vendor,type,brand,page).then(function(result){
 			database.addItems(result);
-			//console.log(result);
 		}).then(function(result){
 			resolve ();
 		}).catch(function(err){
@@ -64,5 +63,4 @@ exports.test = function(){
 addDiapers().then(function(){console.log('Items Populating @ ' + new Date());});
 setInterval(function(){
 		addDiapers();
-		//console.log(new Date());
 }, (interval*60*1000));
