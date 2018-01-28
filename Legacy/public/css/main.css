@@ -1,5 +1,5 @@
 /*
-Universal Styles
+Universal Styles Version 1
 */
 
 body{
@@ -230,9 +230,6 @@ Content Container
 }
 .rd_content_full_width_container_large{
 	padding: 5vh 0vw 5vh 0vw
-}
-
-.rd_image{
 }
 
 /*
@@ -592,9 +589,6 @@ Size Table
 	.rd_content_blue{
 		background-color:rgb(38,34,98)!important;
 		color:white!important;
-	}
-
-	.rd_image{
 	}
 
 	#rd_content_full_width{
