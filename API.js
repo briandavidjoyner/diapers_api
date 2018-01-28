@@ -138,6 +138,26 @@ router_API.get('/db/finditemsbytype/:type', function(req,res){
 	});
 });
 
+router_API.get('/db/findsizesbytype/:type', function(req,res){
+	database.distinct('size',{
+		type: req.params.type,
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+router_API.get('/db/findbrandsbytype/:type', function(req,res){
+	database.distinct('brand',{
+		type: req.params.type,
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 var test = require('./API/Services/Lookups/interval.js');
 
 router_API.get('/test', function(req,res){

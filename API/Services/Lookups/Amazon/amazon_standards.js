@@ -17,14 +17,22 @@ exports.Standardize = function(type,input){
 
 				if (type == 'diapers'){
 					if (input[i].ItemAttributes.Brand != undefined &&
+						input[i].ItemAttributes.Title.indexOf('wipe') < 0 &&
+						input[i].ItemAttributes.Title.indexOf('Wipe') < 0 &&
 					 	input[i].DetailPageURL != undefined &&
 					 	input[i].LargeImage != undefined &&
 					 	input[i].OfferSummary.LowestNewPrice.Amount != undefined &&
 					 	input[i].ItemAttributes.Title.match(/count/gi) != null &&
-					 	input[i].ItemAttributes.Size != undefined
+					 	input[i].ItemAttributes.Size != undefined &&
+					 	input[i].ItemAttributes.Size.indexOf('count') < 0 &&
+					 	input[i].ItemAttributes.Size.indexOf('Count') < 0 &&
+					 	input[i].ItemAttributes.Size.indexOf('pack') < 0 &&
+					 	input[i].ItemAttributes.Size.indexOf('Pack') < 0 &&
+					 	input[i].ItemAttributes.Size.length < 10
 						) { 
 							output.push({
 								type: 'diapers',
+								title: input[i].ItemAttributes.Title,
 								vendor: 'amazon',
 								title: input[i].ItemAttributes.Title,
 								brand: input[i].ItemAttributes.Brand,
@@ -66,7 +74,14 @@ exports.postProcess = function(type, data){
 
 					if (type == 'diapers'){
 						data[i].size = data[i].size.replace((/\wize\s/), '');
+						data[i].brand = data[i].brand.toLowerCase();
+						data[i].brand = data[i].brand.trim();
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
+
+					if (typeof data[i].units != 'number'){ //Find something better
+						data.splice(i,1);
+					}
+
 
 			processed ++;
 

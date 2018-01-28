@@ -12,6 +12,7 @@ var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';
 //Schema
 var itemSchema = mongoose.Schema({
 	type: {type: String, required: true},
+	title: {type: String, required: false},
 	vendor: {type: String, required: true},
 	title: {type: String, required: true},
 	brand: {type: String, required: true},
@@ -64,6 +65,16 @@ exports.addItems = function(items){
 exports.findItems = function(query){
 	return new Promise (function(resolve,reject){
 		item.find(query).then(function(result){
+			resolve (result);
+		}).catch(function(err){
+			reject(err);
+		});
+	});
+}
+
+exports.distinct = function(field,query){
+	return new Promise (function(resolve,reject){
+		item.distinct(field,query).then(function(result){
 			resolve (result);
 		}).catch(function(err){
 			reject(err);
