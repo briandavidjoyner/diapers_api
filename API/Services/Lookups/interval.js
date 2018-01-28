@@ -16,7 +16,7 @@ var toDB = function(vendor,type,brand,page){
 	});
 }
 
-addDiapers = function(){
+var addDiapers = function(){
 	return new Promise(function(resolve,reject){
 		database.removeItems({type:'diapers'}).then(function(){
 			toDB('amazon','diapers','huggies',1);
@@ -39,10 +39,50 @@ addDiapers = function(){
 		}).then(function(){
 			toDB('amazon','diapers','huggies',10);
 		}).then(function(){
+			toDB('amazon','diapers','pampers',1);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',2);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',3);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',4);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',5);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',6);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',7);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',8);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',9);
+		}).then(function(){
+			toDB('amazon','diapers','pampers',10);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',1);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',2);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',3);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',4);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',5);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',6);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',7);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',8);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',9);
+		}).then(function(){
+			toDB('amazon','diapers','luvs',10);
+		}).then(function(){
 			resolve ();
 		}).catch(function(err){
 			reject ();
-		});
+		}); 
 	});
 }
 

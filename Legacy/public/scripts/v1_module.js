@@ -19,12 +19,12 @@ Angular Routing
                 brandInfo : function(){
                     return {};
                 },
-                //brandData : function(itemData){
-                //    return itemData.get_unique_field_values('brand').then(function(result){
-                //        return result.data.sort();
-                //    });
-                //    //return {};
-                //},
+                brandData : function(itemData){
+                    return itemData.get_unique_field_values('brand').then(function(result){
+                        return result.data.sort();
+                    });
+                    //return {};
+                },
                 itemData : function(itemData){
                     return itemData.all().then(function(result){
                         return result;
@@ -32,13 +32,13 @@ Angular Routing
                         console.log(err);
                     });
                     //return {};
+                },
+                sizeData : function(itemData){
+                    return itemData.get_unique_field_values('size').then(function(result){
+                        return result.data.sort(function(a, b){return a-b});
+                    });
+                    //return {}; 
                 }
-//                sizeData : function(itemData){
-//                    return itemData.get_unique_field_values('size').then(function(result){
-//                        return result.data.sort(function(a, b){return a-b});
-//                    });
-//                    //return {}; 
-//                }
             }
         }).when('/legacy/about', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_about.html',
@@ -417,19 +417,29 @@ Services
                     reject (error);
                 });
             });
-        };
+        };*/
 
-        service.get_unique_field_values = function(query){
+        service.get_unique_field_values = function(variable){
             return new Promise(function(resolve,reject){
-                $http.get('/api/getsizes/' + query).then(function(result){
+                
+            if (variable == 'size'){
+                $http.get('/api/db/findsizesbytype/diapers').then(function(result){
+                    resolve (result);
+                }).catch(function(error){
+                    reject (error);
+                });  
+            } else if (variable == 'brand'){
+                $http.get('/api/db/findbrandsbytype/diapers').then(function(result){
                     resolve (result);
                 }).catch(function(error){
                     reject (error);
                 });
+            }
+            
             });
         };
 
-        service.brand_size = function(brand,size){
+        /*service.brand_size = function(brand,size){
             return new Promise(function(resolve,reject){
                 $http.get('/api/getitemsbyboth/' + brand + '/' + size).then(function(result){
                     resolve (result);
@@ -619,8 +629,8 @@ Services
 ////////////////////*/
 
     //Controllers
-    app.controller('diapers', ['$scope','$window','brandInfo','itemData','title',
-     function($scope,$window,brandInfo,itemData,title){
+    app.controller('diapers', ['$scope','$window','brandInfo','itemData','title','sizeData','brandData',
+     function($scope,$window,brandInfo,itemData,title,sizeData,brandData){
     //app.controller('diapers', ['$scope','brandInfo','brandData','itemData','sizeData','$route','$window', 'title', 
     //    function($scope,brandInfo,brandData,itemData,sizeData,$route,$window,title){
 
@@ -665,9 +675,9 @@ Services
 
     //Get Brand/Item Data
         $scope.brandInfo = brandInfo;
-        //$scope.brands = brandData;
+        $scope.brands = brandData;
         $scope.items = itemData.data;
-//        $scope.sizes = sizeData;
+        $scope.sizes = sizeData;
         $scope.updateTime = new Date;
 
     //Meta Data Updates
