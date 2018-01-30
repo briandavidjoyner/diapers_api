@@ -28,6 +28,7 @@ exports.Standardize = function(type,input){
 					 	input[i].ItemAttributes.Size.indexOf('Count') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('pack') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('Pack') < 0 &&
+					 	Number.isInteger(parseInt(input[i].ItemAttributes.Title.match(/\d+(?=\s\wount)/))) == true &&
 					 	input[i].ItemAttributes.Size.length < 10
 						) { 
 							output.push({
@@ -78,10 +79,10 @@ exports.postProcess = function(type, data){
 						data[i].brand = data[i].brand.trim();
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
 
-					if (typeof data[i].units != 'number'){ //Find something better
+					if (typeof data[i].units != 'number'){ //Find something better - this sucks
+						console.log(data[i].units);
 						data.splice(i,1);
 					}
-
 
 			processed ++;
 
