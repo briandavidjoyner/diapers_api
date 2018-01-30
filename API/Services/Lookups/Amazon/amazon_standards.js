@@ -28,6 +28,8 @@ exports.Standardize = function(type,input){
 					 	input[i].ItemAttributes.Size.indexOf('Count') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('pack') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('Pack') < 0 &&
+					 	input[i].ItemAttributes.Size.indexOf('lbs') < 0 &&
+					 	input[i].ItemAttributes.Size.indexOf('Lbs') < 0 &&
 					 	Number.isInteger(parseInt(input[i].ItemAttributes.Title.match(/\d+(?=\s\wount)/))) == true &&
 					 	input[i].ItemAttributes.Size.length < 10
 						) { 
