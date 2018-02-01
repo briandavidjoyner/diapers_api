@@ -17,14 +17,16 @@ exports.Standardize = function(type,input){
 
 				if (type == 'diapers'){
 					if (input[i].ItemAttributes.Brand != undefined &&
-						input[i].ItemAttributes.Brand != 'Huggies' ||
-						input[i].ItemAttributes.Brand != 'huggies' ||
-						input[i].ItemAttributes.Brand != 'Pampers' ||
-						input[i].ItemAttributes.Brand != 'pampers' ||
-						input[i].ItemAttributes.Brand != 'Luvs' ||
-						input[i].ItemAttributes.Brand != 'luvs' &&
+						input[i].ItemAttributes.Brand == 'Huggies' ||
+						input[i].ItemAttributes.Brand == 'huggies' ||
+						input[i].ItemAttributes.Brand == 'Pampers' ||
+						input[i].ItemAttributes.Brand == 'pampers' ||
+						input[i].ItemAttributes.Brand == 'Luvs' ||
+						input[i].ItemAttributes.Brand == 'luvs' &&
 						input[i].ItemAttributes.Title.indexOf('wipe') < 0 &&
 						input[i].ItemAttributes.Title.indexOf('Wipe') < 0 &&
+						input[i].ItemAttributes.Title.indexOf('wipes') < 0 &&
+						input[i].ItemAttributes.Title.indexOf('Wipes') < 0 &&
 					 	input[i].DetailPageURL != undefined &&
 					 	input[i].LargeImage != undefined &&
 					 	input[i].OfferSummary.LowestNewPrice.Amount != undefined &&
