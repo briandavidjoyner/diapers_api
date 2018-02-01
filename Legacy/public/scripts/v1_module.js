@@ -40,7 +40,7 @@ Angular Routing
                     //return {}; 
                 }
             }
-        }).when('/legacy/about', {
+        /*}).when('/legacy/about', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_about.html',
             description : '',
             controller: 'diapers',
@@ -86,7 +86,7 @@ Angular Routing
                 },
                 sizeData : function(){
                     return {};
-                */}
+                }
             }
         })
         //Guide Pages
@@ -99,7 +99,7 @@ Angular Routing
                 title : function($route){
                     var _return = 'Explore The Best Prices On ' + $route.current.params.brand + ' Brand Diapers';
                     return _return;
-                /*},
+                },
                 brandInfo : function(brandInfo,$route) {
                     return brandInfo.data($route.current.params.brand).then(function(result){
                         return result;
@@ -116,14 +116,14 @@ Angular Routing
                 },
                 sizeData : function(){
                     return {};
-                */}
+                }
             }
         }).when('/legacy/brand/:brand/size/:size', {
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_brand.html',
             description : '',
             controller: 'diapers',
             resolve: {
-                /*title : function($route){
+                title : function($route){
                     var _return = 'Explore The Best Prices On ' + $route.current.params.brand + ' Brand Diapers';
                     return _return;
                 },
@@ -143,8 +143,8 @@ Angular Routing
                 },
                 sizeData : function(){
                     return {};
-                }*/
-            }
+                }
+            }*/
         }).otherwise({
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
             description: '',
