@@ -47,7 +47,7 @@ Angular Routing
             resolve : {
                 title : function(){
                     return 'Are We Diapers.com?  Afraid Not - But We Do Find You The Best Diaper Deals!';
-                /*},
+                },
                 brandInfo : function(){
                     return {};
                 },
@@ -59,7 +59,7 @@ Angular Routing
                 },
                 sizeData : function(){
                     return {};
-                */}
+                }
             }
         })
         
@@ -123,10 +123,10 @@ Angular Routing
             description : '',
             controller: 'diapers',
             resolve: {
-                title : function($route){
+                /*title : function($route){
                     var _return = 'Explore The Best Prices On ' + $route.current.params.brand + ' Brand Diapers';
                     return _return;
-                /*},
+                },
                 brandInfo : function(brandInfo,$route) {
                     return brandInfo.data($route.current.params.brand).then(function(result){
                         return result;
@@ -143,7 +143,7 @@ Angular Routing
                 },
                 sizeData : function(){
                     return {};
-                */}
+                }*/
             }
         }).otherwise({
             templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
@@ -198,15 +198,15 @@ Custom Componets
         }
     });
 
-//    app.directive('header2', function () {
-//        return {
-//            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
-//            replace: true,
-//            //scope: {test_item = 'something'},
-//            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_header2.html',
-//            //controller: 'diapers'
-//        }
-//    });
+    app.directive('header2', function () {
+        return {
+            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+            replace: true,
+            //scope: {test_item = 'something'},
+            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_header2.html',
+            //controller: 'diapers'
+        }
+    });
 
     app.directive('navigation', function () {
         return {
@@ -218,15 +218,15 @@ Custom Componets
         }
     });
 
-//    app.directive('navigation2', function () {
-//        return {
-//            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
-//            replace: true,
-//            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-//            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_navigation2.html',
-//            //controller: 'diapers'
-//        }
-//    });
+    app.directive('navigation2', function () {
+        return {
+            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+            replace: true,
+            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
+            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_navigation2.html',
+            //controller: 'diapers'
+        }
+    });
 
     app.directive('sizefilter', function () {
         return {
@@ -348,15 +348,15 @@ Custom Componets
 //        }
 //    });
 
-//    app.directive('about', function () {
-//        return {
-//            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
-//            replace: true,
-//            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-//            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_about.html',
-//            //controller: 'diapers'
-//        }
-//    });
+    app.directive('about', function () {
+        return {
+            restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
+            replace: true,
+            //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
+            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_about.html',
+            //controller: 'diapers'
+        }
+    });
 
 //    app.directive('emailcapture', function () {
 //        return {
@@ -681,7 +681,6 @@ Services
         $scope.updateTime = new Date;
 
     //Meta Data Updates
-        //document.title = $route.current.title;
         document.title = title;
 
     //Menu
