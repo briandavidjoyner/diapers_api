@@ -27,3 +27,13 @@ exports.subscribe = function(email,size,brand){
     });
   });
 };
+
+exports.report = function(){
+  return new Promise(function(resolve,reject){
+    mailchimp.get('/reports/' + '1fba275bb0').then(function(results){
+      resolve(results);
+    }).catch(function(error){
+      reject(error);
+    });
+  });
+}

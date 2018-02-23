@@ -23,6 +23,14 @@ router_API.get('/subscribe/:email/:size/:brand', function(req, res){
 	});
 });
 
+router_API.get('/emailreport', function(req, res){
+	mailchimp.report().then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 //////////////////////////////////////////
 //Twilio API///////////////////////////////
 //////////////////////////////////////////
