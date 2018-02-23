@@ -23,10 +23,10 @@
     "express": "^4.16.2",
     "mailchimp-api-v3": "^1.8.0",
     "md5": "^2.2.1",
-    "mongodb": "^3.0.1",
-    "mongoose": "^4.13.9",
+    "mongodb": "^3.0.2",
+    "mongoose": "^4.13.10",
     "promise": "^8.0.1",
-    "twilio": "^3.11.1",
+    "twilio": "^3.11.2",
     "walmart": "0.0.4"
   }
 }
