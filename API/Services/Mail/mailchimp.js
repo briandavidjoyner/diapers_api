@@ -37,3 +37,13 @@ exports.report = function(){
     });
   });
 }
+
+exports.reports = function(){
+  return new Promise(function(resolve,reject){
+    mailchimp.get('/reports').then(function(results){
+      resolve(results);
+    }).catch(function(error){
+      reject(error);
+    });
+  });
+}
