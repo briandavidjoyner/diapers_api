@@ -31,6 +31,14 @@ router_API.get('/emailreport', function(req, res){
 	});
 });
 
+router_API.get('/emailreports', function(req, res){
+	mailchimp.reports().then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 //////////////////////////////////////////
 //Twilio API///////////////////////////////
 //////////////////////////////////////////
