@@ -9,7 +9,7 @@ Angular Routing
 //Angular Routing
     app.config(function($routeProvider, $locationProvider){ 
         $routeProvider.when('/legacy/', { 
-            templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
+            templateUrl : 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
             description: '',
             controller: 'diapers',
             resolve: {
@@ -146,7 +146,7 @@ Angular Routing
                 }
             }*/
         }).otherwise({
-            templateUrl : '/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
+            templateUrl : 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_templates/v1_main_page.html',
             description: '',
             controller: 'diapers',
             resolve: {
@@ -193,7 +193,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_header.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_header.html',
             //controller: 'diapers'
         }
     });
@@ -203,7 +203,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {test_item = 'something'},
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_header2.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_header2.html',
             //controller: 'diapers'
         }
     });
@@ -213,7 +213,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_navigation.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_navigation.html',
             //controller: 'diapers'
         }
     });
@@ -223,7 +223,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_navigation2.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_navigation2.html',
             //controller: 'diapers'
         }
     });
@@ -233,7 +233,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_filter_size.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_filter_size.html',
             //controller: 'diapers'
         }
     });
@@ -243,7 +243,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_filter_brand.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_filter_brand.html',
             //controller: 'diapers'
         }
     });
@@ -253,7 +253,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_info_block.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_info_block.html',
             //controller: 'diapers'
         }
     });
@@ -283,7 +283,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_items.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_items.html',
             //controller: 'diapers'
         }
     });
@@ -313,7 +313,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_content.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_content.html',
             //controller: 'diapers'
         }
     });
@@ -353,7 +353,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_about.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_about.html',
             //controller: 'diapers'
         }
     });
@@ -373,7 +373,7 @@ Custom Componets
             restrict: 'E', //This menas that it will be used as an attribute and NOT as an element. I don't like creating custom HTML elements
             replace: true,
             //scope: {user: '='}, // This is one of the cool things :). Will be explained in post.
-            templateUrl: '/legacy/public/views/pages/angular/page_components/v1_footer.html',
+            templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/legacy/public/views/pages/angular/page_components/v1_footer.html',
             //controller: 'diapers'
         }
     });
@@ -391,7 +391,7 @@ Services
         
         service.all = function(){
             return new Promise(function(resolve,reject){
-                $http.get('/api/db/finditemsbytype/diapers').then(function(result){
+                $http.get('https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/api/db/finditemsbytype/diapers').then(function(result){
                     resolve (result);
                 }).catch(function(error){
                     reject (error);
@@ -423,13 +423,13 @@ Services
             return new Promise(function(resolve,reject){
                 
             if (variable == 'size'){
-                $http.get('/api/db/findsizesbytype/diapers').then(function(result){
+                $http.get('https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/api/db/findsizesbytype/diapers').then(function(result){
                     resolve (result);
                 }).catch(function(error){
                     reject (error);
                 });  
             } else if (variable == 'brand'){
-                $http.get('/api/db/findbrandsbytype/diapers').then(function(result){
+                $http.get('https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/api/db/findbrandsbytype/diapers').then(function(result){
                     resolve (result);
                 }).catch(function(error){
                     reject (error);
