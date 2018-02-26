@@ -86,6 +86,7 @@ exports.postProcess = function(type, data){
 
 					if (type == 'diapers'){
 						data[i].size = data[i].size.replace((/\wize\s/), '');
+						// regualar express match for 1  number || newborn || toddler || etc. (count this out via a new database and history counter)
 						data[i].brand = data[i].brand.toLowerCase();
 						data[i].brand = data[i].brand.trim();
 					} else { reject ('Type is not defined'); } //Is this the way to handle this?
