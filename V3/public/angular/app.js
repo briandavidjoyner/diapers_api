@@ -7,5 +7,6 @@ diaperApp.config(function($sceDelegateProvider) {
     // Allow loading from our assets domain.  Notice the difference between * and **.
     'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/**'
   ]);
+ });
 	
 console.log('module loaded');
