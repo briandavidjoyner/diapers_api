@@ -6,12 +6,12 @@ var url ={
 	top_item : base_url + '/v3/public/angular/components/top_item.html'
 }
 
-diaperApp.directive('topItem', function () {
+diaperApp.directive('top-item', function () {
     return {
         restrict: 'E',
         replace: true,
         //scope: {user: '='},
-        templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/v3/public/angular/components/topItem.html',
+        templateUrl: 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/v3/public/angular/components/top-item.html',
         //controller: 'diapers'
     }
 });

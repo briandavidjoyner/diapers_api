@@ -2,7 +2,7 @@ body {
 	text-align: center;
 }
 
-#topItem{
+#top-item{
 	display: inline-block;
     min-width: 300px;
     max-width: 500px;
