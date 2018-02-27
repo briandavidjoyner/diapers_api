@@ -1,11 +1,3 @@
-//URLS
-var base_url = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com';
-//var base_url;
-
-var url ={
-	top_item : base_url + '/v3/public/angular/components/top_item.html'
-}
-
 diaperApp.directive('top-item', function () {
     return {
         restrict: 'E',
