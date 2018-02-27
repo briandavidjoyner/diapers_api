@@ -9,7 +9,7 @@ diaperApp.directive('topItem', function () {
         restrict: 'E',
         replace: true,
         //scope: {user: '='},
-        templateUrl: url.header,
+        templateUrl: url.top_item,
         //controller: 'diapers'
     }
 });
