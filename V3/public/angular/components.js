@@ -4,7 +4,7 @@ var url ={
 	top_item : base_url + '/v3/public/angular/components/top_item.html'
 }
 
-diaperApp.directive('top_item', function () {
+diaperApp.directive('topItem', function () {
     return {
         restrict: 'E',
         replace: true,
