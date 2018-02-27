@@ -15,3 +15,5 @@ diaperApp.directive('topItem', function () {
         //controller: 'diapers'
     }
 });
+
+console.log('components loaded');
