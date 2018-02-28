@@ -1,10 +1,41 @@
 body {
 	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	padding:0;
+    margin:0 auto;
 }
 
-#top-item{
-	display: inline-block;
-    min-width: 300px;
-    max-width: 500px;
-    background-color: #add8e6;
+a {
+	text-decoration: none;
+}
+
+/*Global Styles*/
+.no_decorate{
+	text-decoration: none;
+	color: black;
+}
+
+#top_item{
+	max-width: 500px;
+    display: inline-block;
+}
+
+.top_item_holder{
+}
+
+.top_item_image{
+	max-width: 100vw;
+}
+
+/*Item Components*/
+
+#button{
+	margin: auto;
+    background-color: orange;
+    width: 80%;
+}
+
+#button_text{
+	color: white;
+	padding: 9px 11px 11px 11px;
 }
