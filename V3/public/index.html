@@ -8,9 +8,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="/v3/public/angular/app.js"></script>
 <script type="text/javascript" src="/v3/public/angular/components.js"></script>
-<script type="text/javascript" src="/v3/public/angular/modules/diapersController.js"></script>
-	<head>
-	</head>
+<script type="text/javascript" src="/v3/public/angular/modules/diapersController.js"></script>	
+<head>
+<script type="text/javascript">
+	function filter(){
+		jQuery('#filters').slideToggle();
+	}
+</script>
+</head>
 	<body ng-controller="diapers">
 		<top></top>
 		<item></item>
@@ -19,12 +24,4 @@
 		<footer></footer>
 		<filters></filters>
 	</body>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-	jQuery('#footer_left').click(function(){
-		console.log("slide");
-		jQuery('#filters').slideToggle();
-	});
-});
-</script>
 </html>
