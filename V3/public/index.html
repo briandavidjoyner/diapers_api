@@ -4,7 +4,7 @@
 <meta description="Find The Best Deals On Diapers From Pampers, Huggies, & Luvs">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com//v3/public/styles.css"> 
+<link rel="stylesheet" type="text/css" href="https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/v3/public/styles.css"> 
 <!-- Angular Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/v3/public/angular/app.js"></script>
@@ -13,11 +13,15 @@
 <head>
 <script type="text/javascript">
 	function filter(){
+		var body_height = window.innerHeight;
+		var footer_height = jQuery('#footer_left').height();
+		var filter_height = body_height - footer_height
+		jQuery('#filters').height(filter_height);
 		jQuery('#filters').slideToggle();
 	}
 </script>
 </head>
-	<body ng-controller="diapers">
+	<body ng-controller="diapers"">
 		<top></top>
 		<item></item>
 		<topcontent></topcontent>

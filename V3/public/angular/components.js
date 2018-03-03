@@ -68,4 +68,3 @@ diaperApp.directive('filters', function () {
         //controller: 'diapers'
     }
 });
-
