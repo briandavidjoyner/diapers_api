@@ -84,9 +84,9 @@ h2 {
 }
 
 .footer_text_container{
-    height: 12.5vh;
+    //height: 12.5vh;
     width: 100vw;
-    display: table-cell;
+    //display: table-cell;
     vertical-align: middle;
 }
 
