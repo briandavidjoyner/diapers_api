@@ -6,7 +6,7 @@ var url = {
 			topcontent : base + 'v3/public/angular/components/top-content.html',
 			items : base + 'v3/public/angular/components/items.html',
 			footer : base + 'v3/public/angular/components/footer.html',
-			filters : base + 'v3/public/angular/components/filters.html',
+			filters : base + 'v3/public/angular/components/filters.html'
 }
 
 diaperApp.directive('top', function () {
