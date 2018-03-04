@@ -66,7 +66,6 @@ h2 {
 }
 
 #footer_left{
-	max-height: 125px;
 	color: white;
 	background-color: rgb(38,34,98);
 	width:100vw;
@@ -76,7 +75,6 @@ h2 {
 }
 
 #footer_right{
-	max-height: 125px;
 	background-color: rgb(235, 235, 235);
 	width:50vw;
 	//height:12.5vh;
@@ -103,6 +101,13 @@ h2 {
 	display: none;
 }
 
+.filter_text{
+	padding: 0 3vw 0 3vw!important;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100vw;
+}
+
 /*Item Components*/
 
 #button{
@@ -114,4 +119,8 @@ h2 {
 #button_text{
 	color: white;
 	padding: 9px 11px 11px 11px;
+}
+
+.dropdown {
+	text-decoration: underline;
 }
