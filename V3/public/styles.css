@@ -59,7 +59,7 @@ h2 {
 
 /*Footer*/
 #footer{
-	//height:12.5vh;
+	z-index: 1000000;
 	width: 100vw;
 	position: fixed;
 	bottom: 0;
@@ -93,7 +93,7 @@ h2 {
 /*Filters*/
 #filters{
 	background-color: rgb(220,220,220);
-	//height: 87.5vh;
+	height: 100vh;
 	width: 100vw;
 	z-index: 10001;
 	position: fixed;
