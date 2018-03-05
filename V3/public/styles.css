@@ -93,11 +93,11 @@ h2 {
 }
 
 .filter_text{
-	padding: 0 3vw 0 3vw!important;
+	padding: 10vh 3vw 0 3vw!important;
     display: table-cell;
     vertical-align: middle;
     width: 100vw;
-    height: 100vh;
+    //height: 100vh;
 }
 
 /*Item Components*/
