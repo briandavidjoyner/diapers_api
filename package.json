@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/briandavidjoyner/diapers_new#readme",
   "dependencies": {
+    "angular-dropdowns": "^1.5.1",
     "apac": "^3.0.2",
     "assert": "^1.4.1",
     "compression": "^1.7.2",
     "express": "^4.16.2",
+    "gulp": "^3.9.1",
     "mailchimp-api-v3": "^1.8.0",
     "md5": "^2.2.1",
     "mongodb": "^3.0.3",
