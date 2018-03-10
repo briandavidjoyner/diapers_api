@@ -93,6 +93,7 @@ h2 {
 }
 
 .filter_text{
+	font-size: 3em;
 	padding: 10vh 3vw 0 3vw!important;
     display: table-cell;
     vertical-align: middle;
@@ -114,5 +115,8 @@ h2 {
 }
 
 .dropdown {
-	text-decoration: underline;
+	background-color: transparent;
+    border-style: none;
+    font-size: 1em;
+    text-decoration: underline;
 }

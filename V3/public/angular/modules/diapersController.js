@@ -4,5 +4,8 @@ diaperApp.controller("diapers", function ($scope) {
     $scope.items = ['item2', 'items3', 'item4', 'item5', 'item6', 'item7'];
     $scope.item = ['item1'];
     $scope.brands = ['brand 1', 'brand 2', 'brand 3'];
+    $scope.sizes = ['All Sizes', 'size 1', 'size 2', 'size 3'];
+    $scope.selectedSize = 'All Sizes';
+    $scope.selectedBrand = 'brand 1';
     window.scope = $scope;
 });
