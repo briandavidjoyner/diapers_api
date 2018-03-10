@@ -3,7 +3,7 @@
 <div id="#top_content">
 	<div id="item" ng-repeat="item in items">
 		<a href="{{item.url}}" target="_blank"><div>
-			<div><img class="items_image" src="{{item.image}}"></div>
+			<div><img class="items_image" ng-src="{{item.image}}"></div>
 			<div>
 				<div class="no_decorate"><h2>Size {{item.size}} {{item.brand | capitalize}}<br>${{item.pricePerUnit}} Per Diaper</h2></div>
 			</div>
