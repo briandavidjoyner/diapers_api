@@ -10,5 +10,11 @@ diaperApp.config(function($sceDelegateProvider) {
     'https://www.diapersdiapers.com/**'
   ]);
  });
-	
-console.log('module loaded');
+
+diaperApp.filter('capitalize', function() {
+        return function(input, scope) {
+            if (input!=null)
+            input = input.toLowerCase();
+            return input.substring(0,1).toUpperCase()+input.substring(1);
+        }
+    });
