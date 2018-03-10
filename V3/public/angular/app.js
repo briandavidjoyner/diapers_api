@@ -12,9 +12,7 @@ diaperApp.config(function($sceDelegateProvider) {
  });
 
 diaperApp.filter('capitalize', function() {
-        return function(input, scope) {
-            if (input!=null)
-            input = input.toLowerCase();
-            return input.substring(0,1).toUpperCase()+input.substring(1);
-        }
-    });
+    return function(text) {
+      return (!!text) ? text.charAt(0).toUpperCase() + text.substr(1).toLowerCase() : '';
+    }
+});
