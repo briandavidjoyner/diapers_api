@@ -1,12 +1,13 @@
-//var base = '/';
-var base = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/'
+//Base URL Set
+var baseURL = window.location.origin;
+
 var url = {
-			top : base + 'v3/public/angular/components/top.html',
-			item : base + 'v3/public/angular/components/item.html',
-			topcontent : base + 'v3/public/angular/components/top-content.html',
-			items : base + 'v3/public/angular/components/items.html',
-			footer : base + 'v3/public/angular/components/footer.html',
-			filters : base + 'v3/public/angular/components/filters.html'
+			top : baseURL + '/v3/public/angular/components/top.html',
+			item : baseURL + '/v3/public/angular/components/item.html',
+			topcontent : baseURL + '/v3/public/angular/components/top-content.html',
+			items : baseURL + '/v3/public/angular/components/items.html',
+			footer : baseURL + '/v3/public/angular/components/footer.html',
+			filters : baseURL + '/v3/public/angular/components/filters.html'
 }
 
 diaperApp.directive('top', function () {
