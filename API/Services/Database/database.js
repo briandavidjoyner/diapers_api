@@ -28,6 +28,10 @@ var itemSchema = mongoose.Schema({
 //Create DB Model
 var item = mongoose.model('item', itemSchema);
 
+//Use Promises Library
+mongoose.Promise = require('promise');
+//clearassert.equal(exports.exec().constructor, require('promise'));  Issues with this from Mongoose docs
+
 // Connect using MongoClient
 mongoose.connect(url, { useMongoClient: true }).then(function(){
 	console.log('db connection established');
