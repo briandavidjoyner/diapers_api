@@ -150,15 +150,15 @@ router_API.get('/db/finditemsbytype/:type', function(req,res){
 	//var size = req.params('size');
 	console.log(req.query.size);
 
-	database.findItems({
-		$and: [ 
-			{ type: { $eq: type } }, 
-			{ pricePerUnit: { $gt: 0 } },
-			{ units: { $gt: 0 } }
-		]
-
 	//database.findItems({
-	//	type: req.params.type
+	//	$and: [ 
+	//		{ type: { $eq: type } }, 
+	//		{ pricePerUnit: { $gt: 0 } },
+	//		{ units: { $gt: 0 } }
+	//	]
+
+	database.findItems({
+		type: req.params.type
 	}).then(function(result){
 		res.send(result);
 	}).catch(function(err){

@@ -19,9 +19,9 @@ var itemSchema = mongoose.Schema({
 	brand: {type: String, required: true},
 	url: {type: String, required: true},
 	image: {type: String, required: true},
-	price: {type: Number, required: true},
-	units: {type: Number, required: true},
-	pricePerUnit: {type: Number, required: true},
+	price: {type: String, required: true},
+	units: {type: String, required: true},
+	pricePerUnit: {type: String, required: true},
 	size: {type: String, required: true}
 });
 
