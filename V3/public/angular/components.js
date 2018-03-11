@@ -1,5 +1,5 @@
-var base = '/';
-//var base = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/'
+//var base = '/';
+var base = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/'
 var url = {
 			top : base + 'v3/public/angular/components/top.html',
 			item : base + 'v3/public/angular/components/item.html',
