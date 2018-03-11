@@ -70,7 +70,8 @@ exports.addItems = function(items){
 exports.findItems = function(query){
 	return new Promise (function(resolve,reject){
 		item.find(query).then(function(result){
-			resolve (result);
+			_sort(result).then(function(result){
+				resolve (result);
 		}).catch(function(err){
 			reject(err);
 		});
@@ -98,7 +99,7 @@ exports.removeItems = function(query){
   	});
 }
 
-item.sort = function(dataIn){
+function _sort = function(dataIn){
 	return new Promise(function(resolve,reject){
 		console.log('sorting');
 		var dataIn = dataIn
