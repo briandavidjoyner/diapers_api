@@ -23,10 +23,10 @@ exports.Standardize = function(type,input){
 						input[i].ItemAttributes.Brand == 'pampers' ||
 						input[i].ItemAttributes.Brand == 'Luvs' ||
 						input[i].ItemAttributes.Brand == 'luvs' &&
-						input[i].ItemAttributes.Title.indexOf('wipe') < -1 &&
-						input[i].ItemAttributes.Title.indexOf('Wipe') < -1 &&
-						input[i].ItemAttributes.Title.indexOf('wipes') < -1 &&
-						input[i].ItemAttributes.Title.indexOf('Wipes') < -1 &&
+						input[i].ItemAttributes.Title.indexOf('ipe') < -1 &&
+						//input[i].ItemAttributes.Title.indexOf('Wipe') < -1 &&
+						//input[i].ItemAttributes.Title.indexOf('wipes') < -1 &&
+						//input[i].ItemAttributes.Title.indexOf('Wipes') < -1 &&
 					 	input[i].DetailPageURL != undefined &&
 					 	input[i].LargeImage != undefined &&
 					 	input[i].OfferSummary.LowestNewPrice.Amount != undefined &&
