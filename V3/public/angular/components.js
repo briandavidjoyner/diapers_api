@@ -1,6 +1,10 @@
 //Base URL Set
 var baseURL = window.location.origin;
 
+if (baseURL.indexOf('diapersdiapers') > -1){
+    baseURL = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com';
+}
+
 var url = {
 			top : baseURL + '/v3/public/angular/components/top.html',
 			item : baseURL + '/v3/public/angular/components/item.html',
