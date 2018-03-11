@@ -145,8 +145,20 @@ router_API.get('/walmart/diapers/:brand/:page', function(req,res){
 //////////////////////////////////////////
 
 router_API.get('/db/finditemsbytype/:type', function(req,res){
+	var type = req.params.type;
+	//var brand = req.params('brand');
+	//var size = req.params('size');
+	console.log(req.query.size);
+
 	database.findItems({
-		type: req.params.type
+		$and: [ 
+			{ type: { $eq: type } }, 
+			{ pricePerUnit: { $gt: 0 } },
+			{ units: { $gt: 0 } }
+		]
+
+	//database.findItems({
+	//	type: req.params.type
 	}).then(function(result){
 		res.send(result);
 	}).catch(function(err){

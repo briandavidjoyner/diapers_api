@@ -6,10 +6,9 @@ var dbName = process.env.MONGODB_DATABASE || 'datastore';
 var dbLocal = process.env.dbLocal || '@127.0.0.1:27017/';
 var db;
 
-//Comment Out For Production
-//var url = 'mongodb://' + username + ':' + password + '@mongodb:27017/datastore';  //Only works on hst
+//Uses Environmentals To Determine DB Local
 console.log('mongodb://' + username + ':' + password + dbLocal + dbName);
-var url = 'mongodb://' + username + ':' + password + dbLocal + dbName;  //Works locally
+var url = 'mongodb://' + username + ':' + password + dbLocal + dbName;
 
 //Schema
 var itemSchema = mongoose.Schema({
@@ -20,9 +19,9 @@ var itemSchema = mongoose.Schema({
 	brand: {type: String, required: true},
 	url: {type: String, required: true},
 	image: {type: String, required: true},
-	price: {type: String, required: true},
-	units: {type: String, required: true},
-	pricePerUnit: {type: String, required: true},
+	price: {type: Number, required: true},
+	units: {type: Number, required: true},
+	pricePerUnit: {type: Number, required: true},
 	size: {type: String, required: true}
 });
 
@@ -94,3 +93,26 @@ exports.removeItems = function(query){
       	});
   	});
 }
+
+item.sort = function(dataIn){
+	return new Promise(function(resolve,reject){
+		console.log('sorting');
+		var dataIn = dataIn
+			dataIn.sort(
+				function compare(a, b) {
+				  	if (a.pricePerUnit < b.pricePerUnit)
+		 			{
+				    	return -1;
+				  	}
+					if (a.pricePerUnit > b.pricePerUnit) {
+					  	return 1;
+					} else
+					  // a must be equal to b
+					  return 0;
+					}
+			);
+		resolve(dataIn);
+	});
+	
+}
+
