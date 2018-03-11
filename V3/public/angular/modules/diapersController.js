@@ -1,7 +1,10 @@
+//Base URL Set
+var baseURL = window.location.origin;
+
 diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     //Get Items
-   	$http.get('https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com/api/db/finditemsbytype/diapers').then(function(result){
+   	$http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
             $scope.items = result.data;
     });
 
