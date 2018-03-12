@@ -148,7 +148,6 @@ router_API.get('/db/finditemsbytype/:type', function(req,res){
 	var type = req.params.type;
 	//var brand = req.params('brand');
 	//var size = req.params('size');
-	console.log('search');
 	database.findItems({
 		$and: [ 
 			{ type: { $eq: type } }, 
