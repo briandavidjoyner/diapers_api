@@ -1,5 +1,6 @@
 var	Promise = require('promise');
 var mongoose = require ('mongoose');
+var sorting = require (__dirname + '/sortfunctions.js');
 var username = process.env.MONGODB_USER;
 var password = process.env.MONGODB_PASSWORD;
 var dbName = process.env.MONGODB_DATABASE || 'datastore';
@@ -70,8 +71,9 @@ exports.addItems = function(items){
 exports.findItems = function(query){
 	return new Promise (function(resolve,reject){
 		item.find(query).then(function(result){
-			_sort(result).then(function(result){
-				resolve (result);
+			return sorting.sort(result);
+		}).then(function(result){
+			resolve (result);
 		}).catch(function(err){
 			reject(err);
 		});
@@ -97,27 +99,5 @@ exports.removeItems = function(query){
         	reject (err);
       	});
   	});
-}
-
-function _sort = function(dataIn){
-	return new Promise(function(resolve,reject){
-		console.log('sorting');
-		var dataIn = dataIn
-			dataIn.sort(
-				function compare(a, b) {
-				  	if (a.pricePerUnit < b.pricePerUnit)
-		 			{
-				    	return -1;
-				  	}
-					if (a.pricePerUnit > b.pricePerUnit) {
-					  	return 1;
-					} else
-					  // a must be equal to b
-					  return 0;
-					}
-			);
-		resolve(dataIn);
-	});
-	
 }
 
