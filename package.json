@@ -21,14 +21,14 @@
     "apac": "^3.0.2",
     "assert": "^1.4.1",
     "compression": "^1.7.2",
-    "express": "^4.16.2",
+    "express": "^4.16.3",
     "gulp": "^3.9.1",
     "mailchimp-api-v3": "^1.8.0",
     "md5": "^2.2.1",
-    "mongodb": "^3.0.4",
-    "mongoose": "^4.13.11",
+    "mongodb": "^3.0.7",
+    "mongoose": "^4.13.12",
     "promise": "^8.0.1",
-    "twilio": "^3.13.0",
+    "twilio": "^3.15.1",
     "walmart": "0.0.4"
   }
 }
