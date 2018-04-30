@@ -97,12 +97,12 @@ h2 {
 }
 
 .filter_text{
-	font-size: 3em;
+	font-size: 2.5em;
 	padding: 10vh 3vw 0 3vw!important;
     display: table-cell;
     vertical-align: middle;
     width: 100vw;
-    //height: 100vh;
+    text-align: left;
 }
 
 /*Item Components*/
@@ -119,6 +119,7 @@ h2 {
 }
 
 .dropdown {
+	width: 6em;
 	background-color: transparent;
     border-style: none;
     font-size: 1em;

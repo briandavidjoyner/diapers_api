@@ -14,10 +14,23 @@
 <head>
 <script type="text/javascript">
 	function filter(){
+		console.log('filter on');
 		var body_height = window.innerHeight;
-		var footer_height = jQuery('#footer_left').height();
-		var filter_height = body_height - footer_height
+		var footer_height = jQuery('#footer_text_container').height();
+		var filter_height = body_height - (2*footer_height);
+		jQuery('.inner_container.filter_text').height(filter_height);
 		jQuery('#filters').slideToggle();
+	}
+	function transition(){
+		var text_start = jQuery('.footer_text').text();
+		jQuery('.footer_text').fadeOut(500,'linear',function(){
+			if (text_start === 'Update Filters'){
+				jQuery('.footer_text').text('Find My Diapers');
+			} else {
+				jQuery('.footer_text').text('Update Filters');
+			}	
+		});
+		jQuery('.footer_text').fadeIn(500);
 	}
 </script>
 </head>

@@ -111,6 +111,17 @@ router_API.get('/amazon/diapers/:brand/:page', function(req,res){
 	});
 });
 
+router_API.get('/amazon/diapers/clean/:brand/:page', function(req,res){
+	amazon.diaperlookup(req.params.brand,req.params.page).then(function(result){
+		return amazonClean.clean('diapers', result);
+	}).then(function(result){	
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+
 router_API.get('/amazon/diapers/standarized/:brand/:page', function(req,res){
 	standardize('amazon','diapers',req.params.brand,req.params.page).then(function(result){
 		res.send(result);
@@ -163,6 +174,57 @@ router_API.get('/db/finditemsbytype/:type', function(req,res){
 		res.send(err);
 	});
 });
+
+router_API.get('/db/finditemsbytypebrandsize/:type/:brand/:size', function(req,res){
+	var type = req.params.type;
+	var brand = req.params.brand;
+	var size = req.params.size;
+	database.findItems({
+		$and: [ 
+			{ type: { $eq: type } }, 
+			{ brand: { $eq: brand}},
+			{ size: {$eq: size}},
+			{ units: { $ne: NaN } }
+		]
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+router_API.get('/db/finditemsbytypeandsize/:type/:size', function(req,res){
+	var type = req.params.type;
+	var size = req.params.size;
+	database.findItems({
+		$and: [ 
+			{ type: { $eq: type } }, 
+			{ size: {$eq: size}},
+			{ units: { $ne: NaN } }
+		]
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
+router_API.get('/db/finditemsbytypeandbrand/:type/:brand', function(req,res){
+	var type = req.params.type;
+	var brand = req.params.brand;
+	database.findItems({
+		$and: [ 
+			{ type: { $eq: type } }, 
+			{ brand: { $eq: brand}},
+			{ units: { $ne: NaN } }
+		]
+	}).then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 
 router_API.get('/db/findsizesbytype/:type', function(req,res){
 	database.distinct('size',{

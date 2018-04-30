@@ -20,7 +20,7 @@ exports.Standardize = function(type,input){
 				for (i=0; i<end; i++) {
 
 					processed ++;
-					console.log(processed);
+					//console.log(processed);
 
 					if (i = end){
 						resolve (output);
