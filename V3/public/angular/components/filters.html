@@ -1,3 +1,12 @@
 <div id="filters">
-	<div class="inner_container filter_text">I'm looking for <select class="dropdown" ng-options="size for size in sizes" ng-model="selectedSize"></select><br>diapers from <select class="dropdown" ng-options="brand for brand in brands" ng-model="selectedBrand"></select></div>
+	<div class="inner_container filter_text">
+		<p>I'm looking for 
+			<select class="dropdown" ng-options="size for size in sizes" ng-model="selectedSize" ng-change="update_items();">
+				<!-- <option value="">any sized</option> -->
+			</select>
+		<br><br>diapers from 
+			<select class="dropdown" ng-options="brand for brand in brands" ng-model="selectedBrand" ng-change="update_items();">
+				<!-- <option value="">any brand</option> -->
+			</select>
+	</div>
 </div>

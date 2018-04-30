@@ -28,7 +28,7 @@
     "mongodb": "^3.0.7",
     "mongoose": "^4.13.12",
     "promise": "^8.0.1",
-    "twilio": "^3.15.1",
+    "twilio": "^3.16.0",
     "walmart": "0.0.4"
   }
 }

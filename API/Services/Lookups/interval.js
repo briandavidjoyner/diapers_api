@@ -100,6 +100,8 @@ exports.test = function(){
 //Automated Lookup////////////////////////
 //////////////////////////////////////////
 
+//This can be commented out to disable lookup.
+
 addDiapers().then(function(){console.log('Items Populating @ ' + new Date());});
 setInterval(function(){
 		addDiapers();

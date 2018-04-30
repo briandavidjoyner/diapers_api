@@ -1,6 +1,6 @@
 var	Promise = require('promise');
 var amazon = require('./Amazon/amazon.js');
-var standarize = require('./Amazon/amazon_standards.js');
+var standarize = require('./Amazon/amazon_standards_v2.js');
 var _this = {};
 
 _this.standardize = function(vendor,type,brand,page){
