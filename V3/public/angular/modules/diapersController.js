@@ -62,6 +62,12 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
         }
     }
 
+    //GA Event
+    $scope.analytics = function(category,action,label){
+        console.log(label);
+        window.ga('send', 'event', [category], [action], [label]);
+    }
+
     $scope.selectedSize = 'any sized';
     $scope.selectedBrand = 'any brand';
 
