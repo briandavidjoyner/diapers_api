@@ -256,6 +256,15 @@ router_API.get('/test', function(req,res){
 	});
 });
 
+var testItems = require('./API/Services/Lookups/Lookup.js').getItems;
+router_API.get('/newAPI', function(req,res){
+	testItems('amazon','diapers').then(function(result){	
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 module.exports = router_API;
 
 
