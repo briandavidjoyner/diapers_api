@@ -29,6 +29,7 @@
 		var filter_height = body_height - (2*footer_height);
 		jQuery('.inner_container.filter_text').height(filter_height);
 		jQuery('#filters').slideToggle();
+		window.scope.analytics('Filter Click','Click');
 	}
 	function transition(){
 		var text_start = jQuery('.footer_text').text();

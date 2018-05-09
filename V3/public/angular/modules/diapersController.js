@@ -64,7 +64,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
 
     //GA Event
     $scope.analytics = function(category,action,label){
-        console.log(label);
+        console.log(category);
         window.gtag('event', action, {
             'event_category': category,
             'event_label': label
