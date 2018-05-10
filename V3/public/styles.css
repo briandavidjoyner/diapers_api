@@ -15,7 +15,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2.5em;
+	font-size: 2em;
 }
 
 /*Global Styles*/
@@ -42,7 +42,7 @@ h2 {
 }
 
 .item_image{
-	width: 80%;
+	width: 50%;
 }
 
 .items_image{
@@ -97,7 +97,7 @@ h2 {
 }
 
 .filter_text{
-	font-size: 2.5em;
+	font-size: 41px;
 	padding: 10vh 3vw 0 3vw!important;
     display: table-cell;
     vertical-align: middle;
@@ -124,4 +124,21 @@ h2 {
     border-style: none;
     font-size: 1em;
     text-decoration: underline;
+}
+
+
+
+@media screen and (min-width: 500px){
+	.filter_text{
+		font-size: 3.5em;
+		padding: 10vh 3vw 0 3vw!important;
+	}
+
+	h2 {
+		font-size: 2.5em;
+	}
+
+	.item_image{
+		width: 80%;
+	}
 }
