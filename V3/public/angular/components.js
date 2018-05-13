@@ -10,6 +10,7 @@ var url = {
 			item : baseURL + '/v3/public/angular/components/item.html',
 			topcontent : baseURL + '/v3/public/angular/components/top-content.html',
 			items : baseURL + '/v3/public/angular/components/items.html',
+            bottom : baseURL + '/v3/public/angular/components/bottom.html',
 			footer : baseURL + '/v3/public/angular/components/footer.html',
 			filters : baseURL + '/v3/public/angular/components/filters.html'
 }
@@ -50,6 +51,16 @@ diaperApp.directive('items', function () {
         replace: true,
         //scope: {items: '=items'},
         templateUrl: url.items,
+        //controller: 'diapers'
+    }
+});
+
+diaperApp.directive('bottom', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        //scope: {items: '=items'},
+        templateUrl: url.bottom,
         //controller: 'diapers'
     }
 });
