@@ -230,7 +230,8 @@ router_API.get('/db/findsizesbytype/:type', function(req,res){
 	database.distinct('size',{
 		type: req.params.type,
 	}).then(function(result){
-		res.send(result);
+		res.send(['any sized','Preemie','Newborn','1','2','3','4','5','6']);  //Quick Size Fix
+		//res.send(result);
 	}).catch(function(err){
 		res.send(err);
 	});
