@@ -101,8 +101,7 @@ exports.test = function(){
 //////////////////////////////////////////
 
 //This can be commented out to disable lookup.
-
-//addDiapers().then(function(){console.log('Items Populating @ ' + new Date());});
-//setInterval(function(){
-//		addDiapers();
-//}, (interval*60*1000));
+addDiapers().then(function(){console.log('Items Populating @ ' + new Date());});
+setInterval(function(){
+		addDiapers();
+}, (interval*60*1000));
