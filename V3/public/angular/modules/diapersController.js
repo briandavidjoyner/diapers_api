@@ -16,11 +16,15 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     $http.get(baseURL + '/api/db/findbrandsbytype/diapers').then(function(result){
             $scope.brands = result.data;
             $scope.brands.push('any brand');
-    }).then(function(){ $http.get(baseURL + '/api/db/findsizesbytype/diapers').then(function(result){
-            $scope.sizes = result.data;
-            $scope.sizes.push('any sized');
+    //})
+    //Removed this standarize sizes
+    //.then(function(){ $http.get(baseURL + '/api/db/findsizesbytype/diapers').then(function(result){
+            //$scope.sizes = result.data;
+            //$scope.sizes.push('any sized');
+            $scope.sizes = ['any sized','Preemie','Newborn','1','2','3','4','5','6'];
+    //});
     });
-    });
+    //});
 
    	//Scope
     $scope.update_items_api = function(brand,size){  
