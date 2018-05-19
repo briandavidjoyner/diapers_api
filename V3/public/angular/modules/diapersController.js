@@ -17,7 +17,6 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             $scope.brands = result.data;
             $scope.brands.push('any brand');
     })
-    //Removed this standarize sizes
     .then(function(){ $http.get(baseURL + '/api/db/findsizesbytype/diapers').then(function(result){
             $scope.sizes = result.data;
             $scope.sizes.push('any sized');
