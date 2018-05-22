@@ -241,7 +241,8 @@ router_API.get('/db/findbrandsbytype/:type', function(req,res){
 	database.distinct('brand',{
 		type: req.params.type,
 	}).then(function(result){
-		res.send(result);
+		//res.send(result);
+		res.send(['huggies','luvs','pampers']);  //Quick Brand Fix
 	}).catch(function(err){
 		res.send(err);
 	});
