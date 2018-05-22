@@ -38,6 +38,18 @@ exports.Standardize = function(type,input){
 					 	input[i].ItemAttributes.Size.indexOf('Pack') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('lbs') < 0 &&
 					 	input[i].ItemAttributes.Size.indexOf('Lbs') < 0 &&
+					 	input[i].ItemAttributes.Size == 1 ||
+					 	input[i].ItemAttributes.Size == 2 ||
+					 	input[i].ItemAttributes.Size == 3 ||
+					 	input[i].ItemAttributes.Size == 4 ||
+					 	input[i].ItemAttributes.Size == 5 ||
+					 	input[i].ItemAttributes.Size == 6 ||
+					 	input[i].ItemAttributes.Size == 7 ||
+					 	input[i].ItemAttributes.Size == 8 ||
+					 	input[i].ItemAttributes.Size == 'Newborn' ||
+					 	input[i].ItemAttributes.Size == 'newborn' ||
+					 	input[i].ItemAttributes.Size == 'premmie' ||
+					 	input[i].ItemAttributes.Size == 'Premmie' ||
 					 	Number.isInteger(parseInt(input[i].ItemAttributes.Title.match(/\d+(?=\s\wount)/))) == true &&
 					 	input[i].ItemAttributes.Size.length < 10
 						) { 
