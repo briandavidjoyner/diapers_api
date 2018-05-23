@@ -10,6 +10,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     //Get Items
    	$http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
         $scope.items = result.data;
+        $scope.clean_items = $scope.clean(result.data);
     });
 
     //Get Brands & Sizes
@@ -22,6 +23,12 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             $scope.sizes.push('any sized');
     });
     });
+
+    //Get Price Averages
+        $http.get(baseURL + '/api/db/averageprice/diapers').then(function(result){
+        $scope.priceaverage = result.data;
+    });
+
 
    	//Scope
     $scope.update_items_api = function(brand,size){  
@@ -71,6 +78,24 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             'event_label': label
             //'value': <value>
         });
+    }
+
+    //Top Item
+    $scope.clean = function(items){
+        var out = [];
+        var length = items.length;
+            for (i=0; i<length; i++){
+                (items[i].size == 'Preemie'|| 
+                    items[i].size == 'Newborn')||
+                    items[i].size == 1||
+                    items[i].size == 2||
+                    items[i].size == 3||
+                    items[i].size == 4||
+                    items[i].size == 5||
+                    items[i].size == 7||
+                    items[i].size == 8 ? out.push(items[i]) : false;
+            }
+        return out;
     }
 
     $scope.selectedSize = 'any sized';
