@@ -1,7 +1,7 @@
 <div id="items">
 	<!-- item template -->
 <div id="#top_content">
-	<div id="item" ng-repeat="item in items">
+	<div id="item" ng-repeat="item in clean_items">
 		<a href="{{item.url}}" target="_blank" ng-click="analytics('Item Click','Click',item.vendor);"><div>
 			<div><img class="items_image" ng-src="{{item.image}}"></div>
 			<div>

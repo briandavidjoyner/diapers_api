@@ -248,6 +248,61 @@ router_API.get('/db/findbrandsbytype/:type', function(req,res){
 	});
 });
 
+router_API.get('/db/averageprice/diapers', function(req,res){
+	res.send({
+		'premiee':{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		'newborn':{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		1:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		2:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		3:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		4:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		5:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		6:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		7:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		},
+		8:{
+			'pampers':1,
+			'huggies':1,
+			'luvs':1
+		}	
+	});
+});
+
 var test = require('./API/Services/Lookups/interval.js');
 
 router_API.get('/test', function(req,res){

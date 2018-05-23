@@ -1,12 +1,12 @@
 <div id="header_content">
 	<div id="item">
-		<a href="{{items[1].url}}" target="_blank" ng-click="analytics('Item Click','Click Of Top Item',items[1].vendor);"><div>
-			<div><img class="item_image" ng-src="{{items[1].image}}"></div>
+		<a href="{{clean_items[0].url}}" target="_blank" ng-click="analytics('Item Click','Click Of Top Item',clean_items[0].vendor);"><div>
+			<div><img class="item_image" ng-src="{{clean_items[0].image}}"></div>
 			<div>
-				<div class="no_decorate"><h2>Size {{items[1].size}} {{items[1].brand | capitalize}}<br>${{items[1].pricePerUnit}} Per Diaper</h2></div>
+				<div class="no_decorate"><h2>Size {{clean_items[0].size}} {{clean_items[0].brand | capitalize}}<br>${{clean_items[0].pricePerUnit}} Per Diaper</h2></div>
 			</div>
 			<div>
-				<div class="no_decorate"><h3>Total Price: ${{items[1].price}}<br>Total Items: {{items[1].units}}</h3></div>
+				<div class="no_decorate"><h3>Total Price: ${{clean_items[0].price}}<br>Total Items: {{clean_items[0].units}}</h3></div>
 			</div>
 			<div>
 				<div id="button">	
