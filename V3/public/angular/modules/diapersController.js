@@ -51,19 +51,19 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             $scope.update_items_api($scope.selectedBrand,$scope.selectedSize);
         } else if ($scope.selectedBrand !== 'any brand' && $scope.selectedSize === 'any sized'){
             $http.get(baseURL + '/api/db/finditemsbytypeandbrand/diapers/' + brand).then(function(result){
-                $scope.items = result.data;
+                $scope.clean_items = result.data;
             });
             jQuery('#top_header').css('display','none');
             jQuery('#header_content').css('display','none');
         } else if ($scope.selectedSize !== 'any sized' && $scope.selectedBrand === 'any brand'){
             $http.get(baseURL + '/api/db/finditemsbytypeandsize/diapers/' + size).then(function(result){
-                $scope.items = result.data;
+                $scope.clean_items = result.data;
             });
             jQuery('#top_header').css('display','none');
             jQuery('#header_content').css('display','none');
         } else {
             $http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
-                    $scope.items = result.data;
+                    $scope.clean_items = result.data;
             });
             jQuery('#top_header').css('display','initial');
             jQuery('#header_content').css('display','initial');
