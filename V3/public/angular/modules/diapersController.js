@@ -8,10 +8,13 @@ if (baseURL.indexOf('diapersdiapers') > -1){
 diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     //Get Items
-   	$http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
-        $scope.items = result.data;
-        $scope.clean_items = $scope.clean(result.data);
-    });
+    $scope.getItems = function(){
+        $http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
+            $scope.items = result.data;
+            $scope.clean_items = $scope.clean(result.data);
+        });
+    }
+    $scope.getItems();
 
     //Get Brands & Sizes
     $http.get(baseURL + '/api/db/findbrandsbytype/diapers').then(function(result){
@@ -33,7 +36,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
    	//Scope
     $scope.update_items_api = function(brand,size){  
         $http.get(baseURL + '/api/db/finditemsbytypebrandsize/diapers/' + brand + '/' + size).then(function(result){
-            $scope.items = result.data;
+            $scope.clean_items = result.data;
         }).catch(function(error){
             console.log('error');
             return;
@@ -63,7 +66,8 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             jQuery('#header_content').css('display','none');
         } else {
             $http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
-                    $scope.clean_items = result.data;
+                    //$scope.clean_items = result.data;
+                    $scope.getItems();
             });
             jQuery('#top_header').css('display','initial');
             jQuery('#header_content').css('display','initial');
