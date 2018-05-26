@@ -16,3 +16,9 @@ diaperApp.filter('capitalize', function() {
       return (!!text) ? text.charAt(0).toUpperCase() + text.substr(1).toLowerCase() : '';
     }
 });
+
+diaperApp.filter('deal', function() {
+    return function(number) { 
+      return (number > 0) ? (100*Math.abs(number)).toFixed(0) + '% ' + 'more expensive' : (100*Math.abs(number)).toFixed(0) + '% ' + 'less expensive';
+    }
+});
