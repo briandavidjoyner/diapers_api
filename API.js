@@ -250,55 +250,55 @@ router_API.get('/db/findbrandsbytype/:type', function(req,res){
 
 router_API.get('/db/averageprice/diapers', function(req,res){
 	res.send({
-		'premiee':{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+		'Preemie':{
+			'pampers':.3,
+			'huggies':.3,
+			'luvs':.3
 		},
-		'newborn':{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+		'Newborn':{
+			'pampers':.2,
+			'huggies':.2,
+			'luvs':.2
 		},
 		1:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.25,
+			'huggies':.25,
+			'luvs':.25
 		},
 		2:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.3,
+			'huggies':.3,
+			'luvs':.3
 		},
 		3:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.3,
+			'huggies':.3,
+			'luvs':.3
 		},
 		4:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.35,
+			'huggies':.35,
+			'luvs':.35
 		},
 		5:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.35,
+			'huggies':.35,
+			'luvs':.35
 		},
 		6:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.45,
+			'huggies':.45,
+			'luvs':.45
 		},
 		7:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.55,
+			'huggies':.55,
+			'luvs':.55
 		},
 		8:{
-			'pampers':1,
-			'huggies':1,
-			'luvs':1
+			'pampers':.7,
+			'huggies':.7,
+			'luvs':.7
 		}	
 	});
 });
