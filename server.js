@@ -13,6 +13,7 @@ var ip = process.env.IP || '0.0.0.0';
 
 //Middleware
 app.use(compression());
+app.use(require('prerender-node').set('prerenderToken', 'LKwpFQIjf1P3WG8uNEnD'));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
