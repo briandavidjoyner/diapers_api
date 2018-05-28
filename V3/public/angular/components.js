@@ -9,6 +9,7 @@ var url = {
 			top : baseURL + '/v3/public/angular/components/top.html',
 			item : baseURL + '/v3/public/angular/components/item.html',
 			topcontent : baseURL + '/v3/public/angular/components/top-content.html',
+            middlecontent : baseURL + '/v3/public/angular/components/middle-content.html',
 			items : baseURL + '/v3/public/angular/components/items.html',
             bottom : baseURL + '/v3/public/angular/components/bottom.html',
 			footer : baseURL + '/v3/public/angular/components/footer.html',
@@ -41,6 +42,16 @@ diaperApp.directive('topcontent', function () {
         replace: true,
         //scope: {user: '='},
         templateUrl: url.topcontent,
+        //controller: 'diapers'
+    }
+});
+
+diaperApp.directive('middlecontent', function () {
+    return {
+        restrict: 'E',
+        replace: true,
+        //scope: {user: '='},
+        templateUrl: url.middlecontent,
         //controller: 'diapers'
     }
 });
