@@ -6,7 +6,7 @@
 				<div class="no_decorate"><h2>Size {{clean_items[0].size}} {{clean_items[0].brand | capitalize}}<br>${{clean_items[0].pricePerUnit}} Per Diaper</h2></div>
 			</div>
 			<div>
-				<div class="no_decorate"><h3>Total Price: ${{clean_items[0].price}}<br>Total Items: {{clean_items[0].units}}</h3></div>
+				<div class="no_decorate"><h3>Total Price: ${{clean_items[0].price}}<br>Total Items: {{clean_items[0].units}}<br>No Coupon Needed!</h3></div>
 			</div>
 			<div class="no_decorate"><h4><span style="font-size:2em;color:green;">{{(clean_items[0].pricePerUnit - priceaverage[clean_items[0].size][clean_items[0].brand])/priceaverage[clean_items[0].size][clean_items[0].brand] | deal}}</span><br>than other size {{clean_items[0].size | lowercase}} diapers from {{clean_items[0].brand | capitalize}}</h4></div>
 			<div>
