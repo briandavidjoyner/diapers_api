@@ -99,6 +99,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
                     items[i].size == 7||
                     items[i].size == 8 ? out.push(items[i]) : false;
             }
+        window.prerenderReady = true;
         return out;
     }
 
