@@ -1,5 +1,6 @@
 //Base URL Set
 var baseURL = window.location.origin;
+var basePath = window.location.pathname;
 
 if (baseURL.indexOf('diapersdiapers') > -1){
     baseURL = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com';
@@ -7,6 +8,22 @@ if (baseURL.indexOf('diapersdiapers') > -1){
 
 diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
+    //Set Initial Brand & Size
+    $scope.Init = function(basePath){ return new Promise(function(resolve,reject){ 
+        
+        $scope.selectedSize = 'any sized';
+        $scope.selectedBrand = 'any brand'; 
+        
+        if (basePath == '/pampers-coupons'){
+            $scope.selectedBrand = 'pampers';
+        } else if (basePath == '/huggies-coupons'){
+            $scope.selectedBrand = 'huggies';
+        }
+        
+        resolve();
+    });
+    }
+
     //Get Items
     $scope.getItems = function(){ return new Promise(function(resolve,reject){
         $http.get(baseURL + '/api/db/finditemsbytype/diapers').then(function(result){
@@ -17,6 +34,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
         });
     });
     }
+
 
     //Get Brands & Sizes
     $http.get(baseURL + '/api/db/findbrandsbytype/diapers').then(function(result){
@@ -47,12 +65,12 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     });
 
     //Update Items Routing
-    $scope.update_items = function(){
-
+    $scope.update_items = function(){ return new Promise(function(resolve,reject){
+        
         //standardize inputs
         var brand = encodeURIComponent($scope.selectedBrand);
         var size = encodeURIComponent($scope.selectedSize);
-
+        console.log($scope.selectedBrand);
         //Select lookup
         if ($scope.selectedBrand !== 'any brand' && $scope.selectedSize !== 'any sized') {
             $scope.update_items_api($scope.selectedBrand,$scope.selectedSize);
@@ -75,7 +93,8 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             jQuery('#top_header').css('display','initial');
             jQuery('#header_content').css('display','initial');
         }
-    };
+        resolve();
+    })};
 
     //GA Event
     $scope.analytics = function(category,action,label){
@@ -88,11 +107,10 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     //Initialize
     
-    $scope.getItems().then(function(){
-        window.scope = $scope;
-        window.prerenderReady = true;  
+    $scope.Init(basePath).then(function(){$scope.update_items().then(function(){
+            window.scope = $scope;
+            window.prerenderReady = true;  
+        });
     });
-    $scope.selectedSize = 'any sized';
-    $scope.selectedBrand = 'any brand';  
 
 }]);
