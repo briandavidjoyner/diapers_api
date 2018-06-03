@@ -106,6 +106,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
 
     $scope.update = function(){
         setTimeout(function(){
+            window.prerenderReady = true; 
             window.myLazyLoad.update();  
             },500);
     };
@@ -114,7 +115,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     $scope.Init(basePath).then(function(){$scope.update_items().then(function(){
             window.scope = $scope;
-            window.prerenderReady = true; 
+            
         }).then(function(){return;});
     });
 }]);
