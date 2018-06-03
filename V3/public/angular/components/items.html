@@ -1,7 +1,7 @@
 <div id="items">
 	<!-- item template -->
 <div id="#top_content">
-	<div id="item" ng-repeat="item in clean_items">
+	<div id="item" ng-repeat="item in clean_items" ng-class-even="'item_highlight'">
 		<a href="{{item.url}}" target="_blank" ng-click="analytics('Item Click','Click',item.vendor);"><div>
 			<div><img class="items_image" alt="Size {{item.size}} {{item.brand | capitalize}} ${{item.pricePerUnit}} Per Diaper" title="size {{item.size}} {{item.brand | capitalize}} diapers {{(item.pricePerUnit - priceaverage[item.size][item.brand])/priceaverage[item.size][item.brand] | deal}} than other size {{item.size | lowercase}} diapers from {{item.brand | capitalize}}" ng-src="{{item.image}}"></div>
 			<div>
