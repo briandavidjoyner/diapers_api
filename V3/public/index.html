@@ -17,6 +17,7 @@
 <script type="text/javascript" src="/v3/public/angular/modules/diapersController.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89498157-1"></script>
+<!-- GA Script -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -46,25 +47,26 @@
 		jQuery('.footer_text').fadeIn(500);
 	}
 </script>
-	<!-- Favicon -->
-	<link rel="apple-touch-icon" sizes="57x57" href="/legacy/public/graphics/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="/legacy/public/graphics/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/legacy/public/graphics/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="/legacy/public/graphics/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/legacy/public/graphics/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="/legacy/public/graphics/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/legacy/public/graphics/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/legacy/public/graphics/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/legacy/public/graphics/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/legacy/public/graphics/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/legacy/public/graphics/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/legacy/public/graphics/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/legacy/public/graphics/favicon-16x16.png">
-	<link rel="manifest" href="/graphics/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/legacy/public/graphics/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
-	<!-- End Flavicon -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.7.1/lazyload.min.js"></script>
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="/legacy/public/graphics/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/legacy/public/graphics/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/legacy/public/graphics/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/legacy/public/graphics/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/legacy/public/graphics/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/legacy/public/graphics/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/legacy/public/graphics/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/legacy/public/graphics/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/legacy/public/graphics/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/legacy/public/graphics/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/legacy/public/graphics/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/legacy/public/graphics/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/legacy/public/graphics/favicon-16x16.png">
+<link rel="manifest" href="/graphics/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/legacy/public/graphics/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!-- End Flavicon -->
 </head>
 	<body ng-controller="diapers"">
 		<!-- <top></top> -->
@@ -76,4 +78,18 @@
 		<footer></footer>
 		<filters></filters>
 	</body>
+<script>
+(function(w, d){
+	var b = d.getElementsByTagName('body')[0];
+	var s = d.createElement("script"); s.async = true;
+	var v = !("IntersectionObserver" in w) ? "8.7.1" : "10.5.2";
+	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+	w.lazyLoadOptions = {
+		threshold:200,
+		elements_selector:'#item'
+	}; // Your options here. See "recipes" for more information about async.
+	b.appendChild(s);
+}(window, document));
+var myLazyLoad = new LazyLoad();
+</script>
 </html>

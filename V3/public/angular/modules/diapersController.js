@@ -10,7 +10,6 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     //Set Initial Brand & Size
     $scope.Init = function(basePath){ return new Promise(function(resolve,reject){ 
-        
         $scope.selectedSize = 'any sized';
         $scope.selectedBrand = 'any brand'; 
         
@@ -104,13 +103,18 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             //'value': <value>
         });
     };
+
+    $scope.update = function(){
+        setTimeout(function(){
+            window.myLazyLoad.update();  
+            },500);
+    };
     
     //Initialize
     
     $scope.Init(basePath).then(function(){$scope.update_items().then(function(){
             window.scope = $scope;
-            window.prerenderReady = true;  
-        });
+            window.prerenderReady = true; 
+        }).then(function(){return;});
     });
-
 }]);
