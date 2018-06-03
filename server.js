@@ -9,7 +9,7 @@ var version3 = require(__dirname + '/V3/v3.js');
 
 //Port & IP Settings
 var port = process.env.PORT || 8080;
-var ip = process.env.IP || '0.0.0.0';
+var ip = process.env.IP || '192.168.1.4';
 
 //Middleware
 app.use(compression());
