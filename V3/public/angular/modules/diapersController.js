@@ -70,7 +70,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
         //standardize inputs
         var brand = encodeURIComponent($scope.selectedBrand);
         var size = encodeURIComponent($scope.selectedSize);
-        console.log($scope.selectedBrand);
+        //console.log($scope.selectedBrand);
         //Select lookup
         if ($scope.selectedBrand !== 'any brand' && $scope.selectedSize !== 'any sized') {
             $scope.update_items_api($scope.selectedBrand,$scope.selectedSize);
