@@ -3,7 +3,7 @@ var baseURL = window.location.origin;
 var basePath = window.location.pathname;
 
 if (baseURL.indexOf('diapersdiapers') > -1){
-    baseURL = 'https://diapers-diapers.193b.starter-ca-central-1.openshiftapps.com';
+    baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com';
 }
 
 diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
@@ -18,7 +18,6 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
         } else if (basePath == '/huggies-coupons'){
             $scope.selectedBrand = 'huggies';
         }
-        
         resolve();
     });
     }
@@ -37,8 +36,8 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
 
     //Get Brands & Sizes
     $http.get(baseURL + '/api/db/findbrandsbytype/diapers').then(function(result){
-            $scope.brands = result.data;
-            $scope.brands.push('any brand');
+        $scope.brands = result.data;
+        $scope.brands.push('any brand');
     }).then(function(){ 
         $http.get(baseURL + '/api/db/findsizesbytype/diapers').then(function(result){
         $scope.sizes = result.data;
@@ -106,12 +105,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
 
     $scope.update = function(){
         window.myLazyLoad = new LazyLoad();
-        //setTimeout(function(){
-        //    window.prerenderReady = true; 
-        //    console.log('1');
-        //    window.myLazyLoad.update();
-        //    console.log('2');  
-        //    },500);
+        window.prerenderReady = true; 
     };
     
     //Initialize
