@@ -18,6 +18,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
         } else if (basePath == '/huggies-coupons'){
             $scope.selectedBrand = 'huggies';
         }
+        
         resolve();
     });
     }
