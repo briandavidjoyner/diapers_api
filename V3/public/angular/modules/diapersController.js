@@ -3,7 +3,7 @@ var baseURL = window.location.origin;
 var basePath = window.location.pathname;
 
 if (baseURL.indexOf('diapersdiapers') > -1){
-    baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com';
+    baseURL = 'https://externalroute-diapers-api.193b.starter-ca-central-1.openshiftapps.com';
 }
 
 diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
