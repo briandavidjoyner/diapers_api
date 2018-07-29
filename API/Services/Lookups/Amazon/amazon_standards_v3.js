@@ -5,7 +5,17 @@ var Promise = require('promise');
 //////////////////////////////////////////
 
 var brandcheck = function(input) {return new Promise(function(resolve,reject){
-		if (input.ItemAttributes.Brand != undefined&&input.ItemAttributes.Brand == 'Huggies'||input.ItemAttributes.Brand == 'huggies'||input.ItemAttributes.Brand == 'Pampers'||input.ItemAttributes.Brand == 'pampers'||input.ItemAttributes.Brand == 'Luvs'||input.ItemAttributes.Brand == 'luvs') {
+		if (
+			
+			input.ItemAttributes.Brand != undefined &&
+			input.ItemAttributes.Brand == 'Huggies' ||
+			input.ItemAttributes.Brand == 'huggies' ||
+			input.ItemAttributes.Brand == 'Pampers' ||
+			input.ItemAttributes.Brand == 'pampers' ||
+			input.ItemAttributes.Brand == 'Luvs' ||
+			input.ItemAttributes.Brand == 'luvs'
+
+			) {
 			resolve (input);
 		} else {
 			reject (false);
@@ -14,10 +24,18 @@ var brandcheck = function(input) {return new Promise(function(resolve,reject){
 }
 
 var titlecheck = function(input) {return new Promise(function(resolve,reject){
-		if (input[i].ItemAttributes.Title.indexOf('wipe') == 0&&input[i].ItemAttributes.Title.indexOf('Wipe') == 0&&input[i].ItemAttributes.Title.indexOf('wipes') == 0&&input[i].ItemAttributes.Title.indexOf('Wipes') == 0&&input[i].ItemAttributes.Title.match(/count/gi) != null && Number.isInteger(parseInt(input[i].ItemAttributes.Title.match(/\d+(?=\s\wount)/))) == true) {
+		if (
+			
+			input.ItemAttributes.Title.indexOf('wipe') == -1 &&
+			input.ItemAttributes.Title.indexOf('Wipe') == -1 &&
+			input.ItemAttributes.Title.indexOf('wipes') == -1 &&
+			input.ItemAttributes.Title.indexOf('Wipes') == -1 &&
+			input.ItemAttributes.Title.match(/count/gi) != null &&
+			Number.isInteger(parseInt(input.ItemAttributes.Title.match(/\d+(?=\s\wount)/))) == true
+
+			) {
 			resolve (input);
 		} else {
-			console.log('error');
 			reject (false);
 		}
 	});
