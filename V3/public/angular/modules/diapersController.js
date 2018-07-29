@@ -11,7 +11,8 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     //Set Initial Brand & Size
     $scope.Init = function(basePath){ return new Promise(function(resolve,reject){ 
         $scope.selectedSize = 'any sized';
-        $scope.selectedBrand = 'any brand'; 
+        $scope.selectedBrand = 'any brand';
+        $scope.clean_items = []; 
         
         if (basePath == '/pampers-coupons'){
             $scope.selectedBrand = 'pampers';
@@ -92,8 +93,26 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             jQuery('#top_header').css('display','initial');
             jQuery('#header_content').css('display','initial');
         }
+
         resolve();
+
     })};
+
+    //Alert If Error
+    $scope.alertCheck = function(){
+        return new Promise(function(resolve,reject){
+            if ($scope.clean_items.length > 0){
+                console.log('1');
+                resolve ();
+            } else {
+                $http.get('/api/alertmessage').then(function(){
+                    console.log('alert!');
+                    resolve ();
+                });
+            }
+        });
+    }
+
 
     //GA Event
     $scope.analytics = function(category,action,label){
@@ -112,8 +131,11 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     //Initialize
     
     $scope.Init(basePath).then(function(){$scope.update_items().then(function(){
-            window.scope = $scope;
-            
-        }).then(function(){return;});
+            window.scope = $scope; }).then(function(){
+                $scope.alertCheck();
+            }).then(function(){
+                console.log('2');
+                return;
+            });
     });
 }]);

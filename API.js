@@ -51,6 +51,14 @@ router_API.get('/sms/message/:phone', function(req, res){
 	});
 });
 
+router_API.get('/alertmessage', function(req, res){
+	twilio.twilio().then(function(result){
+		res.send(result);
+	}).catch(function(err){
+		res.send(err);
+	});
+});
+
 
 //////////////////////////////////////////
 //For Testing/////////////////////////////
