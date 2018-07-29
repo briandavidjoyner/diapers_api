@@ -1,3 +1,7 @@
+/*
+Removing For Second
+*/
+
 /*var Promise = require('promise');
 var Twilio = require('../../../node_modules/twilio/lib');
 var accountSid = process.env.TWILIO_ACCOUNT_SID;
