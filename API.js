@@ -5,7 +5,7 @@ var	Promise = require('promise');
 
 //APIs
 var mailchimp = require('./API/Services/Mail/mailchimp.js');
-var twilio = require('./API/Services/Twilio/twilio.js');
+//var twilio = require('./API/Services/Twilio/twilio.js');
 var database = require('./API/Services/Database/database.js');
 var amazon = require('./API/Services/Lookups/Amazon/amazon.js');
 var walmart = require('./API/Services/Lookups/Walmart/walmart.js');
@@ -42,7 +42,7 @@ router_API.get('/emailreports', function(req, res){
 //////////////////////////////////////////
 //Twilio API///////////////////////////////
 //////////////////////////////////////////
-
+/*
 router_API.get('/sms/message/:phone', function(req, res){
 	twilio.twilio(req.params.phone).then(function(result){
 		res.send(result);
@@ -58,7 +58,7 @@ router_API.get('/alertmessage', function(req, res){
 		res.send(err);
 	});
 });
-
+*/
 
 //////////////////////////////////////////
 //For Testing/////////////////////////////
