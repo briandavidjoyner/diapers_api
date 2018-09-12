@@ -20,16 +20,16 @@
     "angular-dropdowns": "^1.5.1",
     "apac": "^3.0.2",
     "assert": "^1.4.1",
-    "compression": "^1.7.2",
+    "compression": "^1.7.3",
     "express": "^4.16.3",
     "gulp": "^3.9.1",
     "mailchimp-api-v3": "^1.12.0",
     "md5": "^2.2.1",
-    "mongodb": "^3.0.10",
-    "mongoose": "^4.13.14",
-    "prerender-node": "^3.1.1",
+    "mongodb": "^3.1.4",
+    "mongoose": "^4.13.17",
+    "prerender-node": "^3.2.1",
     "promise": "^8.0.1",
-    "twilio": "^3.17.2",
+    "twilio": "^3.19.2",
     "walmart": "0.0.4"
   }
 }
