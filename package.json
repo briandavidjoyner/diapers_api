@@ -25,11 +25,11 @@
     "gulp": "^3.9.1",
     "mailchimp-api-v3": "^1.12.0",
     "md5": "^2.2.1",
-    "mongodb": "^3.1.1",
-    "mongoose": "^4.13.14",
-    "prerender-node": "^3.2.0",
+    "mongodb": "^3.1.4",
+    "mongoose": "^4.13.17",
+    "prerender-node": "^3.2.1",
     "promise": "^8.0.1",
-    "twilio": "^3.18.0",
+    "twilio": "^3.19.2",
     "walmart": "0.0.4"
   }
 }
