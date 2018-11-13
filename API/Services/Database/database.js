@@ -3,7 +3,7 @@ var mongoose = require ('mongoose');
 var sorting = require (__dirname + '/sortfunctions.js');
 var username = process.env.MONGODB_USER;
 var password = process.env.MONGODB_PASSWORD;
-var dbName = process.env.MONGODB_DATABASE || 'datastore';
+var dbName = process.env.MONGODB_DATABASE || 'sampledb';
 var dbLocal = process.env.dbLocal || '@127.0.0.1:27017/';
 var db;
 
