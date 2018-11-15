@@ -2,7 +2,7 @@
 var baseURL = window.location.origin;
 
 if (baseURL.indexOf('diapersdiapers') > -1){
-    baseURL = 'https://externalroute-diapers-api.193b.starter-ca-central-1.openshiftapps.com';
+    baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com/';
 }
 
 var url = {
