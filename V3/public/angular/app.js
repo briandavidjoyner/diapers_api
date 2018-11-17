@@ -6,7 +6,9 @@ diaperApp.config(function($sceDelegateProvider) {
     'self',
     'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com/**',
     'https://diapersdiapers.com/**',
-    'https://www.diapersdiapers.com/**'
+    'https://www.diapersdiapers.com/**',
+    'http://diapersdiapers.com/**',
+    'http://www.diapersdiapers.com/**'
   ]);
  });
 
