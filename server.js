@@ -6,6 +6,7 @@ var compression = require('compression');
 var API = require(__dirname + '/API.js');
 var legacy = require(__dirname + '/Legacy/legacy.js');
 var version3 = require(__dirname + '/V3/v3.js');
+var cors = require('cors');
 
 //Port & IP Settings
 var port = process.env.PORT || 8080;
@@ -19,12 +20,14 @@ prerender.crawlerUserAgents.push('bingbot');
 prerender.crawlerUserAgents.push('yandex');
 app.use(prerender);
 
+//Cors Middleware
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+app.use(cors());
+//app.use(function(req, res, next) {
+//  res.header("Access-Control-Allow-Origin", "*");
+//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//  next();
+//});
 
 //External Routing Of Public Assets
 app.use('/public', express.static(__dirname + '/public'));
