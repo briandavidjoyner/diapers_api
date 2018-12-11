@@ -6,9 +6,8 @@ if (baseURL.indexOf('diapersdiapers') > -1){
     baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com';
 }
 
-diaperApp.controller("diapers", ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
-    var baseBrand = $routeParams;
-    console.log(baseBrand);
+diaperApp.controller("diapers", ['$scope', '$http', function ($scope, $http) {
+    
     //Set Initial Brand & Size
     $scope.Init = function(basePath,brand,size){ return new Promise(function(resolve,reject){ 
         $scope.selectedSize = 'any sized';
