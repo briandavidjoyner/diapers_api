@@ -48,7 +48,7 @@
 	}
 	function showAll(){
 		jQuery('.itemsHide').toggle('slow', function(){
-			jQuery('#dropDown, .item').toggle('slow');
+			jQuery('#dropDown, .itemShow').toggle('slow');
 		});
 	}
 </script>
@@ -95,4 +95,32 @@
 	b.appendChild(s);
 }(window, document));
 </script>
+<script type="text/javascript">
+	function getJsonFromUrl() {
+	  var urlP = window.location.href;
+	  var query = urlP.substr(1);
+	  var question = location.href.indexOf("?");
+	  var query = location.href.substr(question+1);
+	  var hash = query.indexOf("#");
+	  if(hash>-1) query = query.substr(0,hash);
+	  var result = {};
+	  query.split("&").forEach(function(part) {
+	    if(!part) return;
+	    part = part.split("+").join(" "); // replace every + with space, regexp-free version
+	    var eq = part.indexOf("=");
+	    var key = eq>-1 ? part.substr(0,eq) : part;
+	    var val = eq>-1 ? decodeURIComponent(part.substr(eq+1)) : "";
+	    var from = key.indexOf("[");
+	    if(from==-1) result[decodeURIComponent(key)] = val;
+	    else {
+	      var to = key.indexOf("]",from);
+	      var index = decodeURIComponent(key.substring(from+1,to));
+	      key = decodeURIComponent(key.substring(0,from));
+	      if(!result[key]) result[key] = [];
+	      if(!index) result[key].push(val);
+	      else result[key][index] = val;
+	    }
+  	});
+  	return result;
+}</script>
 </html>

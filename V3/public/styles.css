@@ -45,6 +45,10 @@ h2 {
     padding: 3vh 0vh 3vh 0vh;
 }
 
+.item{
+	padding-top:3vh;
+}
+
 .item_highlight{
 	background-color: rgb(170,210,230,.2);
 }
@@ -70,7 +74,7 @@ h2 {
 
 .items_image_holder{
     height: 200px;
-    width: 500px;
+    width: 100vw;
     display: table-cell;
     vertical-align: middle;
     padding:0px 20px 0px 20px;
@@ -202,6 +206,6 @@ h2 {
 
 @media screen and (min-width: 1200px){
 	#item{
-		max-width: 350px;
+		max-width: 500px;
 	}
 }
