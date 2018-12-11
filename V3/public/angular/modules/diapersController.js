@@ -6,13 +6,16 @@ if (baseURL.indexOf('diapersdiapers') > -1){
     baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com';
 }
 
-diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
-    
+diaperApp.controller("diapers", ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
+    var baseBrand = $routeParams;
+    console.log(baseBrand);
     //Set Initial Brand & Size
-    $scope.Init = function(basePath){ return new Promise(function(resolve,reject){ 
+    $scope.Init = function(basePath,brand,size){ return new Promise(function(resolve,reject){ 
         $scope.selectedSize = 'any sized';
         $scope.selectedBrand = 'any brand';
-        $scope.clean_items = []; 
+        $scope.clean_items = [];
+        $scope.baseBrand = '';
+        $scope.baseSize = '';
         
         if (basePath == '/pampers-coupons'){
             $scope.selectedBrand = 'pampers';
@@ -99,7 +102,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     })};
 
     //Alert If Error
-    $scope.alertCheck = function(){
+/*    $scope.alertCheck = function(){
         return new Promise(function(resolve,reject){
             if ($scope.clean_items.length > 0){
                 console.log('1');
@@ -112,7 +115,7 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
             }
         });
     }
-
+*/
 
     //GA Event
     $scope.analytics = function(category,action,label){
@@ -132,9 +135,9 @@ diaperApp.controller("diapers", ['$scope', '$http' ,function ($scope, $http) {
     
     $scope.Init(basePath).then(function(){$scope.update_items().then(function(){
             window.scope = $scope; }).then(function(){
-                $scope.alertCheck();
+                //$scope.alertCheck();
             }).then(function(){
-                console.log('2');
+                //console.log('2');
                 return;
             });
     });

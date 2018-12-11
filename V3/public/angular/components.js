@@ -7,7 +7,7 @@ if (baseURL.indexOf('diapersdiapers') > -1){
 
 var url = {
 			top : baseURL + '/v3/public/angular/components/top.html',
-			item : baseURL + '/v3/public/angular/components/item.html',
+			item : baseURL + '/v3/public/angular/components/items3.html',
 			topcontent : baseURL + '/v3/public/angular/components/top-content.html',
             middlecontent : baseURL + '/v3/public/angular/components/middle-content.html',
 			items : baseURL + '/v3/public/angular/components/items.html',
