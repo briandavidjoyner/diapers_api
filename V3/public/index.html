@@ -46,6 +46,11 @@
 		});
 		jQuery('.footer_text').fadeIn(500);
 	}
+	function showAll(){
+		jQuery('.itemsHide').toggle('slow', function(){
+			jQuery('#dropDown, .item').toggle('slow');
+		});
+	}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/8.7.1/lazyload.min.js"></script>
 <!-- Favicon -->
@@ -70,8 +75,8 @@
 </head>
 	<body ng-controller="diapers"">
 		<!-- <top></top> -->
-		<item></item>
 		<topcontent></topcontent>
+		<item></item>
 		<items></items>
 		<middlecontent></middlecontent>
 		<bottom></bottom>

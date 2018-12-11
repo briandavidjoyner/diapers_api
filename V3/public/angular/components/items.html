@@ -1,4 +1,4 @@
-<div id="items">
+<div id="items" class="itemsHide">
 	<!-- item template -->
 <div id="#top_content">
 	<div id="item" ng-repeat="item in clean_items" ng-init="$last && update()" ng-class-even="'item_highlight'">
@@ -10,7 +10,7 @@
 			<div>
 				<div class="no_decorate"><h3>Total Price: ${{item.price}}<br>Total Items: {{item.units}}<br>No Coupon Needed!</h3></div>
 			</div>
-			<div class="no_decorate"><h4><span class="item_savings">{{(item.pricePerUnit - priceaverage[item.size][item.brand])/priceaverage[item.size][item.brand] | deal}}</span><br>than other size {{item.size | lowercase}} diapers from {{item.brand | capitalize}}</h4></div>
+			<div class="no_decorate item_savings"><h2><span class="green">{{(item.pricePerUnit - priceaverage[item.size][item.brand])/priceaverage[item.size][item.brand] | deal}}</span><br>than other size {{item.size | lowercase}} diapers from {{item.brand | capitalize}}</h2></div>
 			<div>
 				<div id="button">	
 					<div id="button_text"><h3>Get This Diaper Deal</h3></div>
