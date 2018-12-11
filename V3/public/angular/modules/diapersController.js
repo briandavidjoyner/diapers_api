@@ -1,25 +1,55 @@
+function getJsonFromUrl() {
+  var urlP = window.location.href;
+  var query = urlP.substr(1);
+  var question = location.href.indexOf("?");
+  var query = location.href.substr(question+1);
+  var hash = query.indexOf("#");
+  if(hash>-1) query = query.substr(0,hash);
+  var result = {};
+  query.split("&").forEach(function(part) {
+    if(!part) return;
+    part = part.split("+").join(" "); // replace every + with space, regexp-free version
+    var eq = part.indexOf("=");
+    var key = eq>-1 ? part.substr(0,eq) : part;
+    var val = eq>-1 ? decodeURIComponent(part.substr(eq+1)) : "";
+    var from = key.indexOf("[");
+    if(from==-1) result[decodeURIComponent(key)] = val;
+    else {
+      var to = key.indexOf("]",from);
+      var index = decodeURIComponent(key.substring(from+1,to));
+      key = decodeURIComponent(key.substring(0,from));
+      if(!result[key]) result[key] = [];
+      if(!index) result[key].push(val);
+      else result[key][index] = val;
+    }
+  });
+  return result;
+}
+
+
 //Base URL Set
 var baseURL = window.location.origin;
-var basePath = window.location.pathname;
+var basePath = window.location.pathname; 
 
 if (baseURL.indexOf('diapersdiapers') > -1){
     baseURL = 'https://nodejs-mongo-persistent-diapers.193b.starter-ca-central-1.openshiftapps.com';
 }
 
 diaperApp.controller("diapers", ['$scope', '$http', function ($scope, $http) {
-    
+
     //Set Initial Brand & Size
     $scope.Init = function(basePath,brand,size){ return new Promise(function(resolve,reject){ 
         $scope.selectedSize = 'any sized';
         $scope.selectedBrand = 'any brand';
         $scope.clean_items = [];
-        $scope.baseBrand = '';
-        $scope.baseSize = '';
-        
-        if (basePath == '/pampers-coupons'){
+        $scope.params = getJsonFromUrl();
+
+        if ($scope.params.brand =='pampers'){
             $scope.selectedBrand = 'pampers';
-        } else if (basePath == '/huggies-coupons'){
+        } else if ($scope.params.brand == 'huggies'){
             $scope.selectedBrand = 'huggies';
+        } else {
+            $scope.selectedBrand = 'any brand';
         }
         
         resolve();
