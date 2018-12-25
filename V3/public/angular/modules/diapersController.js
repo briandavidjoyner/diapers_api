@@ -48,8 +48,28 @@ diaperApp.controller("diapers", ['$scope', '$http', function ($scope, $http) {
             $scope.selectedBrand = 'pampers';
         } else if ($scope.params.brand == 'huggies'){
             $scope.selectedBrand = 'huggies';
+        } else if ($scope.params.brand == 'luvs'){
+            $scope.selectedBrand = 'luvs';
         } else {
             $scope.selectedBrand = 'any brand';
+        }
+
+        if ($scope.params.size =='1'){
+            $scope.selectedSize = '1';
+        } else if ($scope.params.size =='2'){
+            $scope.selectedSize = '2';
+        } else if ($scope.params.size =='3'){
+            $scope.selectedSize = '3';
+        } else if ($scope.params.size =='4'){
+            $scope.selectedSize = '4';
+        } else if ($scope.params.size =='5'){
+            $scope.selectedSize = '5';
+        } else if ($scope.params.size =='6'){
+            $scope.selectedSize = '6';
+        } else if ($scope.params.size =='7'){
+            $scope.selectedSize = '7';
+        } else {
+            $scope.selectedSize = 'any sized';
         }
         
         resolve();
