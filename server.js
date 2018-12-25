@@ -21,13 +21,7 @@ prerender.crawlerUserAgents.push('yandex');
 app.use(prerender);
 
 //Cors Middleware
-
 app.use(cors());
-//app.use(function(req, res, next) {
-//  res.header("Access-Control-Allow-Origin", "*");
-//  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//  next();
-//});
 
 //External Routing Of Public Assets
 app.use('/public', express.static(__dirname + '/public'));
