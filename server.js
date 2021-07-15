@@ -1,14 +1,15 @@
 //Dependencies 
 var express = require('express');
-var	app = express();
 var	Promise = require('promise');
 var compression = require('compression');
 var API = require(__dirname + '/API.js');
 var legacy = require(__dirname + '/Legacy/legacy.js');
 var version3 = require(__dirname + '/V3/v3.js');
 var cors = require('cors');
+var	app = express();
 
-//Port & IP Settings
+//Port & IP 
+
 var port = process.env.PORT || 8080;
 var ip = process.env.IP || '0.0.0.0';
 

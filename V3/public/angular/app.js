@@ -8,7 +8,8 @@ diaperApp.config(function($sceDelegateProvider) {
     'https://diapersdiapers.com/**',
     'https://www.diapersdiapers.com/**',
     'http://diapersdiapers.com/**',
-    'http://www.diapersdiapers.com/**'
+    'http://www.diapersdiapers.com/**',
+    'localhost'
   ]);
  });
 

@@ -19,6 +19,10 @@ h2 {
 }
 
 /*Global Styles*/
+.blackText {
+	color: initial!important;
+}
+
 .green{
 	color: rgb(130, 185, 100);
 }
@@ -31,6 +35,10 @@ h2 {
 .no_decorate{
 	text-decoration: none;
 	color: black;
+}
+
+.whiteText {
+	color: white!important;
 }
 
 /*Top Item*/
@@ -162,6 +170,76 @@ h2 {
     text-decoration: underline;
 }
 
+
+/*Size Chart*/
+th {
+	border:1px solid transparent;
+	border-radius: 5px;
+	padding:10px 0px 10px 2%;
+	background-color: rgba(130, 185, 100,.7);
+	//text-align: left;
+}
+
+td {
+	border:1px solid transparent;
+	border-radius: 5px;
+	padding:10px 0px 10px 2%;
+	text-align: left;
+}
+
+.diaperType {
+	font-size: .75em;
+}
+
+.luvs {
+	background-color: rgba(248,248,255,1);
+}
+
+.huggies {
+	background-color: rgba(248,248,255,1);
+}
+
+.pampers{
+	background-color: rgba(248,248,255,1);
+}
+
+
+#sizeChart {
+	width:100%;
+	color:white;
+	border-spacing: 10px;
+	margin: auto;
+}
+
+.sizeType{
+	text-align: left;
+	padding-left: 3%;
+	padding-right: 10px;
+	background-color: rgba(100,110,250,.2);
+	height:300px;
+}
+
+
+.sizeChart {
+	border:1px solid white;
+}
+
+.sizedropdown {
+	color:white;
+	background-color: transparent;
+    border-style: none;
+    font-size: 1em;
+    text-decoration: underline;
+}
+
+.sizeMenu {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 @media screen and (min-width: 800px){
 	.item_highlight{
 		background-color: initial;
@@ -207,5 +285,9 @@ h2 {
 @media screen and (min-width: 1200px){
 	#item{
 		max-width: 500px;
+	}
+
+	#sizeChart {
+		width:80%;
 	}
 }
